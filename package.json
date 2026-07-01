@@ -4,10 +4,12 @@
   "private": true,
   "description": "AI Project Bootstrap Framework",
   "bin": {
-    "create-apbf": "./bin/create-apbf.js"
+    "create-apbf": "./bin/create-apbf.js",
+    "apbf-render-project-info": "./bin/apbf-render-project-info.js"
   },
   "scripts": {
-    "create-apbf": "node ./bin/create-apbf.js"
+    "create-apbf": "node ./bin/create-apbf.js",
+    "render-project-info": "node ./bin/apbf-render-project-info.js"
   },
   "license": "UNLICENSED"
 }

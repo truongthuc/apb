@@ -20,6 +20,7 @@ New abstractions should be considered only when repeated implementation pain dem
 | Existing non-empty target requires manual handling | observed | 1 | Medium | Not yet | Seen when bootstrapping `ai-orchestrator`; current generator correctly refuses to overwrite. |
 | Only `{{PROJECT_NAME}}` is supported | observed | 2 | Low | Not yet | Enough for `ai-orchestrator` and `sample-cli`; defer more variables. |
 | No Git initialization | observed | 1 | Low | Not yet | Consistent with APBF boundary: approval is architectural, Git is developer choice. |
+| BA documents need structured rendering | observed | 1 | Medium | Not yet | Added a simple heading-based renderer for `.md`, `.txt`, `.docx`, and source directories before considering AI extraction or project specification. |
 | No optional template profiles | deferred | 0 | Unknown | No | No evidence yet that v0.1 needs profiles. |
 | No blueprint layer | deferred | 0 | Unknown | No | No evidence yet that templates are insufficient. |
 
@@ -58,6 +59,6 @@ Notes:
 
 ## Current Decision
 
-Do not add manifest, profiles, blueprints, hooks, plugins, or additional variables yet.
+Do not add manifest, profiles, blueprints, hooks, plugins, AI extraction, or additional variables yet.
 
 Continue with copy plus `{{PROJECT_NAME}}` substitution until repeated implementation pain proves the need for more.

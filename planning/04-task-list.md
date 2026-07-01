@@ -185,6 +185,20 @@ Result:
 
 ## Phase 4: Abstraction Decisions Only If Needed
 
+### APBF-309: Render BA Description Into Project Summary
+
+Status: done
+
+Goal: Let a bootstrapped project ingest BA documents and render structured project information.
+
+Result:
+
+- Added `apbf-render-project-info`.
+- The command reads a Markdown, text, DOCX file, or a directory containing supported documents.
+- The command creates `planning/02-project-summary.md`.
+- The renderer uses simple heading-based extraction and does not introduce AI, blueprints, manifests, hooks, or orchestration.
+- Unsupported files are listed in the generated summary instead of failing the whole render.
+
 ### APBF-401: Evaluate Whether Manifest Is Needed
 
 Status: todo
