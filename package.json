@@ -1,0 +1,13 @@
+{
+  "name": "apbf",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI Project Bootstrap Framework",
+  "bin": {
+    "create-apbf": "./bin/create-apbf.js"
+  },
+  "scripts": {
+    "create-apbf": "node ./bin/create-apbf.js"
+  },
+  "license": "UNLICENSED"
+}
