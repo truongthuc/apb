@@ -65,7 +65,7 @@ Routing rules:
 - Current task scope, assumptions, out-of-scope behavior, acceptance criteria, and validation plans go to `.agent/planning/*.md`.
 - API contracts, setup notes, implementation designs, and module documentation go to `.agent/docs/*.md`.
 - Review decisions, approvals, rejected assumptions, and resolved concerns go to `.agent/review-history/*.md`.
-- Unresolved or low-confidence interpretations go to `.codex/reviews/` or `.codex/previews/` until approved.
+- Unresolved or low-confidence interpretations go to `.agent/reviews/` or `.agent/previews/` until approved.
 
 If one owner answer contains multiple knowledge types, split it across the appropriate files instead of forcing it into one document. Preserve traceability by noting the source question, answer, or review decision where practical.
 
@@ -78,23 +78,22 @@ Required structure:
 ```text
 .agent/
   AGENTS.md
-  .agent/planning/
+  artifacts/
+  planning/
   docs/
   architecture-decisions/
     README.md
+  previews/
   review-history/
+  reviews/
   business-rules.md
   naming-conventions.md
   project-context.md
-.codex/
-  artifacts/
-  previews/
-  reviews/
 ```
 
 Root `docs/` is optional and should only be used for human-facing framework documentation.
 
-Root `AGENTS.md` and `CLAUDE.md` should only act as bridge files pointing to `.agent/AGENTS.md`.
+Root `AGENTS.md` and `CLAUDE.md` are bridge files pointing to `.agent/AGENTS.md`. Keep these bridge files thin and do not duplicate project rules in them. Codex, Claude, and other agents should share `.agent/AGENTS.md` as the source of truth.
 
 ## Documentation
 
@@ -102,7 +101,7 @@ Documentation is a living artifact.
 
 Whenever framework behavior, generated project structure, CLI output, templates, or workflow rules change, update relevant docs:
 
-- `.agent/.agent/planning/*.md`
+- `.agent/planning/*.md`
 - `.agent/docs/*.md`
 - `.agent/architecture-decisions/*.md`
 - `.agent/review-history/*.md`
@@ -144,18 +143,18 @@ Use Plannotator when available before:
 
 After review, summarize decisions into `.agent/review-history/`.
 
-If Plannotator is unavailable, create a review summary in `.codex/reviews/` and ask the user to approve it before continuing.
+If Plannotator is unavailable, create a review summary in `.agent/reviews/` and ask the user to approve it before continuing.
 
 ## Artifacts
 
 Generated HTML artifacts should be saved in:
 
-- `.codex/artifacts/`
+- `.agent/artifacts/`
 
 Temporary previews should be saved in:
 
-- `.codex/previews/`
+- `.agent/previews/`
 
 Review summaries should be saved in:
 
-- `.codex/reviews/`
+- `.agent/reviews/`

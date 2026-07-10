@@ -21,7 +21,7 @@ Define how APB should handle unclear source documents: ask Open Questions, recei
 ## Open Questions
 
 - Should APB apply owner answers directly after the owner responds, or should it always create a review draft first?
-- Should the routing workflow be implemented only as agent instructions for now, or should `apbf-render-project-info` generate a machine-readable question list?
+- Should the routing workflow be implemented only as agent instructions for now, or should `apb-render-project-info` generate a machine-readable question list?
 - Should resolved Open Questions remain in the original project summary with a resolution note, or be moved entirely to the target documents?
 
 ## Risk Areas / Unknowns

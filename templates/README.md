@@ -2,15 +2,17 @@
 
 ## Purpose
 
-This repository was bootstrapped with APBF.
+This repository was bootstrapped with APB.
 
 ## Starting Point
 
 Begin with:
 
-1. `.agent/AGENTS.md`
-2. `.agent/planning/00-bootstrap.md`
-3. `.agent/planning/01-task-list.md`
+1. `AGENTS.md`
+2. `CLAUDE.md` when using Claude
+3. `.agent/AGENTS.md`
+4. `.agent/planning/00-bootstrap.md`
+5. `.agent/planning/01-task-list.md`
 
 ## Bootstrap Status
 

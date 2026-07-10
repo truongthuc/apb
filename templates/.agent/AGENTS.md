@@ -55,7 +55,7 @@ Routing rules:
 - Current task scope, assumptions, out-of-scope behavior, acceptance criteria, and validation plans go to `.agent/planning/*.md`.
 - API contracts, setup notes, implementation designs, and module documentation go to `.agent/docs/*.md`.
 - Review decisions, approvals, rejected assumptions, and resolved concerns go to `.agent/review-history/*.md`.
-- Unresolved or low-confidence interpretations go to `.codex/reviews/` or `.codex/previews/` until approved.
+- Unresolved or low-confidence interpretations go to `.agent/reviews/` or `.agent/previews/` until approved.
 
 If one owner answer contains multiple knowledge types, split it across the appropriate files instead of forcing it into one document. Preserve traceability by noting the source question, answer, or review decision where practical.
 
@@ -66,21 +66,22 @@ Use this structure for agent-facing workflow material:
 ```text
 .agent/
   AGENTS.md
+  artifacts/
   planning/
   docs/
   architecture-decisions/
     README.md
+  previews/
   review-history/
+  reviews/
   business-rules.md
   naming-conventions.md
   project-context.md
-.codex/
-  artifacts/
-  previews/
-  reviews/
 ```
 
 Root `docs/` is optional. Use it only for documentation intended for humans outside the agent workflow.
+
+Root `AGENTS.md` and `CLAUDE.md` are bridge files that point to `.agent/AGENTS.md`. Keep these bridge files thin and do not duplicate project rules in them. Codex, Claude, and other agents share `.agent/AGENTS.md` as the source of truth.
 
 ## Documentation
 

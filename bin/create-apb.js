@@ -6,7 +6,7 @@ const path = require("path");
 const projectName = process.argv[2];
 
 if (!projectName) {
-  console.error("Usage: create-apbf <project-name-or-path>");
+  console.error("Usage: create-apb <project-name-or-path>");
   process.exit(1);
 }
 
@@ -44,4 +44,4 @@ function copyTemplate(source, target) {
 
 copyTemplate(templateDir, targetDir);
 
-console.log(`Created APBF project at ${targetDir}`);
+console.log(`Created APB project at ${targetDir}`);

@@ -7,7 +7,7 @@ const zlib = require("zlib");
 const [sourceArg, targetArg] = process.argv.slice(2);
 
 if (!sourceArg) {
-  console.error("Usage: apbf-render-project-info <source-file-or-directory> [project-root]");
+  console.error("Usage: apb-render-project-info <source-file-or-directory> [project-root]");
   process.exit(1);
 }
 

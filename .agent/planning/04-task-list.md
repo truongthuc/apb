@@ -125,7 +125,7 @@ Decision:
 
 Status: done
 
-Goal: Decide whether APBF needs minimal usage documentation for `create-apbf`.
+Goal: Decide whether APBF needs minimal usage documentation for `create-apb`.
 
 Expected output:
 
@@ -133,7 +133,7 @@ Expected output:
 
 Result:
 
-- Added root `README.md` with minimal `create-apbf` usage.
+- Added root `README.md` with minimal `create-apb` usage.
 
 ## Phase 3C: Real Bootstrap Feedback
 
@@ -193,7 +193,7 @@ Goal: Let a bootstrapped project ingest BA documents and render structured proje
 
 Result:
 
-- Added `apbf-render-project-info`.
+- Added `apb-render-project-info`.
 - The command reads a Markdown, text, DOCX file, or a directory containing supported documents.
 - The command creates `.agent/planning/02-project-summary.md`.
 - The renderer uses simple heading-based extraction and does not introduce AI, blueprints, manifests, hooks, or orchestration.
@@ -219,6 +219,71 @@ Result:
 - Added matching routing rules to APBF's own `.agent/AGENTS.md`.
 - Documented the behavior in `README.md`.
 - Deferred CLI support until real usage shows structured Open Questions are needed.
+
+### APBF-311: Consolidate Agent Artifacts Under `.agent`
+
+Status: done
+
+Goal: Keep agent-facing generated artifacts, previews, and review drafts inside `.agent/`.
+
+Result:
+
+- Moved artifact, preview, and review placeholder directories from `.codex/` to `.agent/`.
+- Removed root `CLAUDE.md` from APBF and generated templates at the time; this was later superseded by APBF-314 after Claude compatibility feedback.
+- Removed generated `.codex/` template files.
+- Kept root `AGENTS.md` as the only bridge file at the time; current bridge policy is documented in APBF-314.
+- Updated APBF rules and README structure documentation.
+
+### APBF-312: Prepare Repository For Public GitHub Hosting
+
+Status: done
+
+Goal: Make the repository safe and understandable to host as a public GitHub repository.
+
+Result:
+
+- Removed local machine paths from public README usage examples.
+- Expanded `.gitignore` to exclude dependency folders, local environment files, logs, editor state, build output, and local archives.
+- Documented that GitHub repository visibility and npm registry publication are separate decisions.
+- Kept `package.json` marked private because APBF v0.1 is not prepared for npm publication.
+- Added the MIT license after owner approval.
+
+### APBF-313: Split Default README And English Backup
+
+Status: done
+
+Goal: Make the default GitHub README Vietnamese while preserving the previous English guidance in a table-format backup.
+
+Result:
+
+- Replaced root `README.md` with Vietnamese default guidance.
+- Added `README.en.md` as an English table backup of the previous README content.
+- Kept publication and npm-private status clear in both README files.
+
+### APBF-314: Restore Claude Bridge File
+
+Status: done
+
+Goal: Ensure generated projects work with Claude by providing a `CLAUDE.md` entry point that links back to the shared agent rules.
+
+Result:
+
+- Restored root `CLAUDE.md` in APBF.
+- Restored `templates/CLAUDE.md` for generated projects.
+- Added an ADR superseding the previous decision to omit `CLAUDE.md`.
+- Updated README files and agent rules to state that `AGENTS.md` and `CLAUDE.md` are thin bridge files, while `.agent/AGENTS.md` remains the source of truth.
+
+### APBF-315: Rename CLI Commands To APB
+
+Status: done
+
+Goal: Use APB command names instead of APBF command names.
+
+Result:
+
+- Replaced old APBF command names with `create-apb` and `apb-render-project-info`.
+- Renamed CLI implementation files under `bin/`.
+- Updated package metadata, scripts, README files, and generated template wording.
 
 ### APBF-401: Evaluate Whether Manifest Is Needed
 
