@@ -1,4 +1,4 @@
-# APBF Agent Rules
+# APB Agent Rules
 
 This file is the shared source of truth for AI agents working in `{{PROJECT_NAME}}`.
 

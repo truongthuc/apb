@@ -285,6 +285,19 @@ Result:
 - Renamed CLI implementation files under `bin/`.
 - Updated package metadata, scripts, README files, and generated template wording.
 
+### APBF-316: Align Agent Rules With APB Naming And `.agent` Artifacts
+
+Status: done
+
+Goal: Keep current agent rules aligned with APB naming and the accepted `.agent/` artifact structure.
+
+Result:
+
+- Updated current and generated `.agent/AGENTS.md` titles to APB.
+- Updated current repository role wording from APBF to APB.
+- Replaced remaining active `.codex/reviews` and `.codex/previews` routing references with `.agent/reviews` and `.agent/previews`.
+- Updated project context, business rules, and agent docs README to use APB naming.
+
 ### APBF-401: Evaluate Whether Manifest Is Needed
 
 Status: todo

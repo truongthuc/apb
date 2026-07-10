@@ -1,6 +1,6 @@
 # Architecture Decisions
 
-This directory stores Architecture Decision Records for APBF.
+This directory stores Architecture Decision Records for APB.
 
 Each durable architecture decision must be recorded as a separate file.
 

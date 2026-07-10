@@ -42,7 +42,7 @@ Define how APB should handle unclear source documents: ask Open Questions, recei
 | Current task scope, assumptions, out-of-scope behavior, acceptance criteria | `.agent/planning/*.md` |
 | API contract, setup note, implementation design, module documentation | `.agent/docs/*.md` |
 | Review decision, approval, rejected assumption, resolved concern | `.agent/review-history/YYYY-MM-DD-<topic>.md` |
-| Temporary unresolved interpretation | `.codex/reviews/` or `.codex/previews/` until approved |
+| Temporary unresolved interpretation | `.agent/reviews/` or `.agent/previews/` until approved |
 
 ## Proposed Workflow
 
@@ -51,7 +51,7 @@ Define how APB should handle unclear source documents: ask Open Questions, recei
 3. Ask the owner the smallest set of blocking questions.
 4. Classify each answer using the routing map.
 5. If routing confidence is high, update the correct `.agent/` files and add traceability notes.
-6. If routing confidence is low, create a review draft in `.codex/reviews/` and ask for approval.
+6. If routing confidence is low, create a review draft in `.agent/reviews/` and ask for approval.
 7. Update the original planning summary with resolution status so the same question is not repeatedly asked.
 
 ## Validation Plan

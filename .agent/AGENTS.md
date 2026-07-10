@@ -1,4 +1,4 @@
-# APBF Agent Rules
+# APB Agent Rules
 
 This file is the shared source of truth for AI agents working in this repository.
 
@@ -12,10 +12,10 @@ Codex, Claude, and other agents should follow this file before applying tool-spe
 
 ## Repository Role
 
-- APBF is a bootstrap framework for AI-assisted software projects.
-- APBF is not an application.
-- APBF is not an AI orchestrator.
-- Keep APBF domain-neutral, implementation-neutral, and reusable.
+- APB is a bootstrap framework for AI-assisted software projects.
+- APB is not an application.
+- APB is not an AI orchestrator.
+- Keep APB domain-neutral, implementation-neutral, and reusable.
 - Do not introduce application-specific business rules, runtime flows, agents, prompts, or orchestration behavior.
 
 ## Default Workflow
@@ -71,7 +71,7 @@ If one owner answer contains multiple knowledge types, split it across the appro
 
 ## Project Structure
 
-APBF stores agent-facing planning and documentation inside `.agent/`.
+APB stores agent-facing planning and documentation inside `.agent/`.
 
 Required structure:
 
