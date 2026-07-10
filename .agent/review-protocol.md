@@ -89,7 +89,7 @@ Incremental review must not be used as the default review style. Reviewers shoul
 
 ### Consistency
 
-- Is the artifact consistent with `.agent/project-rules.md`?
+- Is the artifact consistent with `.agent/AGENTS.md`?
 - Is it consistent with approved planning decisions?
 - Does it preserve English-only repository artifacts and Vietnamese communication when requested?
 

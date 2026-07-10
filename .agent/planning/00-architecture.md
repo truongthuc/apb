@@ -10,7 +10,7 @@ Approved for repository initialization.
 .
 ├── .agent/
 │   └── project-rules.md
-├── planning/
+├── .agent/planning/
 │   └── 00-architecture.md
 ├── methodology/
 │   ├── README.md
@@ -44,7 +44,7 @@ Approved for repository initialization.
 
 Contains foundational agent rules for working inside the repository. This directory defines operating guardrails and must not become product documentation or application logic.
 
-### `planning/`
+### `.agent/planning/`
 
 Contains approved planning decisions for APBF itself. Planning documents record repository-level decisions before methodology, templates, documentation, or tooling are created.
 
@@ -72,9 +72,9 @@ Provides the repository entry point. It should explain what APBF is, what APBF i
 
 The approved reading order is:
 
-1. `.agent/project-rules.md`
+1. `.agent/AGENTS.md`
 2. `README.md`
-3. `planning/00-architecture.md`
+3. `.agent/planning/00-architecture.md`
 4. `methodology/README.md`
 5. `methodology/principles.md`
 6. `methodology/lifecycle.md`
@@ -116,7 +116,7 @@ Tooling must not become orchestration. Templates must not contain domain logic. 
 
 ### Phase 0: Foundation Rules
 
-Establish `.agent/project-rules.md` as the baseline rule source.
+Establish `.agent/AGENTS.md` as the baseline rule source.
 
 ### Phase 1: Repository Skeleton
 

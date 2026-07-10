@@ -59,7 +59,7 @@ A release is the unit of distribution or external readiness. It packages milesto
 
 Defines how humans and AI agents collaborate to build APBF. It contains operating rules, review protocol, handoff protocol, document standards, decision standards, and future governance concepts.
 
-### `planning/` = Planning / Methodology Subsystem
+### `.agent/planning/` = Planning / Methodology Subsystem
 
 Defines APBF planning decisions and Methodology layer content. It records approved planning direction before Methodology, Templates, Tooling, or Documentation work proceeds.
 

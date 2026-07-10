@@ -39,43 +39,43 @@ Methodology is the single source of truth.
 
 ## Approved Planning Document Roadmap
 
-### `planning/01-methodology-roadmap.md`
+### `.agent/planning/01-methodology-roadmap.md`
 
 Defines the approved planning document roadmap for the Methodology layer. It records the intended planning documents, their purpose, dependency order, and boundaries before any further planning files are created.
 
-### `planning/02-product-planning-methodology.md`
+### `.agent/planning/02-product-planning-methodology.md`
 
 Defines a domain-neutral product planning methodology for AI-related project bootstrap work. It should cover problem framing, stakeholders, constraints, scope, success criteria, assumptions, and readiness signals without introducing application-specific business logic.
 
-### `planning/03-agent-knowledge-lifecycle.md`
+### `.agent/planning/03-agent-knowledge-lifecycle.md`
 
 Defines how project knowledge should be captured, refined, validated, frozen, reused, revised, or retired for agent-assisted bootstrap work. It must describe knowledge lifecycle principles only and must not define runtime agent orchestration, agent chains, or AI Orchestrator domain behavior.
 
-### `planning/04-governance.md`
+### `.agent/planning/04-governance.md`
 
 Defines governance for APBF planning and methodology decisions. It should cover ownership, approval checkpoints, change control, review responsibilities, artifact status, and boundary enforcement.
 
-### `planning/05-template-design-principles.md`
+### `.agent/planning/05-template-design-principles.md`
 
 Defines principles for future template design. It should explain how templates remain reusable, domain-neutral, minimal, reviewable, and derived from the approved Methodology layer without embedding application logic or AI Orchestrator domain logic.
 
-### `planning/06-bootstrap-workflow.md`
+### `.agent/planning/06-bootstrap-workflow.md`
 
 Defines the methodology-level bootstrap workflow from intake through review and freeze. It should describe process phases and decision points only, without creating generators, CLIs, automation, runtime flows, or code.
 
-### `planning/07-review-and-freeze-process.md`
+### `.agent/planning/07-review-and-freeze-process.md`
 
 Defines the process for reviewing, approving, freezing, revising, and deprecating APBF artifacts. It should establish clear artifact states such as draft, proposed, approved, frozen, revised, and deprecated.
 
-### `planning/08-milestone-workflow.md`
+### `.agent/planning/08-milestone-workflow.md`
 
 Defines how APBF work should be organized into milestones. It should cover milestone scope, entry criteria, exit criteria, checkpoints, review expectations, and methods for avoiding scope creep.
 
-### `planning/09-tooling-design-readiness.md`
+### `.agent/planning/09-tooling-design-readiness.md`
 
 Defines when APBF is ready to consider Tooling layer design. It should describe readiness criteria, constraints, and approval gates for thinking about tooling without starting implementation or creating a tooling roadmap prematurely.
 
-### `planning/10-methodology-completion-criteria.md`
+### `.agent/planning/10-methodology-completion-criteria.md`
 
 Defines the criteria for determining when the Methodology layer is mature enough to move into Templates layer design. It should establish completeness, consistency, boundary, review, and freeze requirements.
 
@@ -83,38 +83,38 @@ Defines the criteria for determining when the Methodology layer is mature enough
 
 The planning documents should be created and reviewed in this order:
 
-1. `planning/01-methodology-roadmap.md`
-2. `planning/02-product-planning-methodology.md`
-3. `planning/03-agent-knowledge-lifecycle.md`
-4. `planning/04-governance.md`
-5. `planning/05-template-design-principles.md`
-6. `planning/06-bootstrap-workflow.md`
-7. `planning/07-review-and-freeze-process.md`
-8. `planning/08-milestone-workflow.md`
-9. `planning/09-tooling-design-readiness.md`
-10. `planning/10-methodology-completion-criteria.md`
+1. `.agent/planning/01-methodology-roadmap.md`
+2. `.agent/planning/02-product-planning-methodology.md`
+3. `.agent/planning/03-agent-knowledge-lifecycle.md`
+4. `.agent/planning/04-governance.md`
+5. `.agent/planning/05-template-design-principles.md`
+6. `.agent/planning/06-bootstrap-workflow.md`
+7. `.agent/planning/07-review-and-freeze-process.md`
+8. `.agent/planning/08-milestone-workflow.md`
+9. `.agent/planning/09-tooling-design-readiness.md`
+10. `.agent/planning/10-methodology-completion-criteria.md`
 
 ## Dependency Rationale
 
-`planning/01-methodology-roadmap.md` must come first because it freezes the planning sequence and scope.
+`.agent/planning/01-methodology-roadmap.md` must come first because it freezes the planning sequence and scope.
 
-`planning/02-product-planning-methodology.md` should come before lifecycle and governance documents because it defines the core planning approach that later documents must support.
+`.agent/planning/02-product-planning-methodology.md` should come before lifecycle and governance documents because it defines the core planning approach that later documents must support.
 
-`planning/03-agent-knowledge-lifecycle.md` should follow product planning methodology because agent knowledge handling depends on what planning knowledge APBF expects to capture and refine.
+`.agent/planning/03-agent-knowledge-lifecycle.md` should follow product planning methodology because agent knowledge handling depends on what planning knowledge APBF expects to capture and refine.
 
-`planning/04-governance.md` should follow the first two methodology topics so governance can enforce concrete planning and knowledge lifecycle boundaries.
+`.agent/planning/04-governance.md` should follow the first two methodology topics so governance can enforce concrete planning and knowledge lifecycle boundaries.
 
-`planning/05-template-design-principles.md` should follow governance because template design principles must inherit approved controls and boundary rules.
+`.agent/planning/05-template-design-principles.md` should follow governance because template design principles must inherit approved controls and boundary rules.
 
-`planning/06-bootstrap-workflow.md` should follow template design principles because the workflow must explain how methodology outputs eventually become template-ready without creating templates too early.
+`.agent/planning/06-bootstrap-workflow.md` should follow template design principles because the workflow must explain how methodology outputs eventually become template-ready without creating templates too early.
 
-`planning/07-review-and-freeze-process.md` should follow the bootstrap workflow because review and freeze rules depend on the artifact flow being defined.
+`.agent/planning/07-review-and-freeze-process.md` should follow the bootstrap workflow because review and freeze rules depend on the artifact flow being defined.
 
-`planning/08-milestone-workflow.md` should follow review and freeze rules because milestones need clear completion and approval checkpoints.
+`.agent/planning/08-milestone-workflow.md` should follow review and freeze rules because milestones need clear completion and approval checkpoints.
 
-`planning/09-tooling-design-readiness.md` should come near the end because tooling should only be considered after methodology, governance, workflow, review, and milestone rules are clear.
+`.agent/planning/09-tooling-design-readiness.md` should come near the end because tooling should only be considered after methodology, governance, workflow, review, and milestone rules are clear.
 
-`planning/10-methodology-completion-criteria.md` should come last because it determines whether the Methodology layer is complete enough to proceed to Templates layer design.
+`.agent/planning/10-methodology-completion-criteria.md` should come last because it determines whether the Methodology layer is complete enough to proceed to Templates layer design.
 
 ## Layer Gate
 

@@ -105,15 +105,15 @@ Methodology documents should depend on approved ADRs and approved upstream metho
 
 Recommended dependency order:
 
-1. `planning/02-methodology-architecture.md`
-2. `planning/03-product-planning-methodology.md`
-3. `planning/04-knowledge-lifecycle.md`
-4. `planning/05-governance-methodology.md`
-5. `planning/06-bootstrap-workflow.md`
-6. `planning/07-review-workflow.md`
-7. `planning/08-milestone-workflow.md`
-8. `planning/09-tooling-readiness.md`
-9. `planning/10-methodology-completion-criteria.md`
+1. `.agent/planning/02-methodology-architecture.md`
+2. `.agent/planning/03-product-planning-methodology.md`
+3. `.agent/planning/04-knowledge-lifecycle.md`
+4. `.agent/planning/05-governance-methodology.md`
+5. `.agent/planning/06-bootstrap-workflow.md`
+6. `.agent/planning/07-review-workflow.md`
+7. `.agent/planning/08-milestone-workflow.md`
+8. `.agent/planning/09-tooling-readiness.md`
+9. `.agent/planning/10-methodology-completion-criteria.md`
 
 Dependency rules:
 

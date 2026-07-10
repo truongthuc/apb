@@ -22,9 +22,9 @@ Goal: Review the current minimal template package for practical usability.
 Current templates:
 
 - `templates/README.md`
-- `templates/planning/00-bootstrap.md`
-- `templates/planning/01-task-list.md`
-- `templates/.agent/project-rules.md`
+- `templates/.agent/planning/00-bootstrap.md`
+- `templates/.agent/planning/01-task-list.md`
+- `templates/.agent/AGENTS.md`
 
 Expected output:
 
@@ -35,8 +35,8 @@ Review result:
 
 - The initial package bootstrapped a usable project.
 - Real usage showed that a persistent task list is needed immediately after bootstrap.
-- Added `templates/planning/01-task-list.md` as a minimal project task list.
-- Updated `templates/README.md` and `templates/planning/00-bootstrap.md` to reference the task list.
+- Added `templates/.agent/planning/01-task-list.md` as a minimal project task list.
+- Updated `templates/README.md` and `templates/.agent/planning/00-bootstrap.md` to reference the task list.
 
 ### APBF-302: Improve Template Variables Only If Needed
 
@@ -180,7 +180,7 @@ Expected output:
 
 Result:
 
-- Added `planning/05-pain-log.md`.
+- Added `.agent/planning/05-pain-log.md`.
 - Recorded `ai-orchestrator` and `sample-cli` bootstrap feedback.
 
 ## Phase 4: Abstraction Decisions Only If Needed
@@ -195,9 +195,30 @@ Result:
 
 - Added `apbf-render-project-info`.
 - The command reads a Markdown, text, DOCX file, or a directory containing supported documents.
-- The command creates `planning/02-project-summary.md`.
+- The command creates `.agent/planning/02-project-summary.md`.
 - The renderer uses simple heading-based extraction and does not introduce AI, blueprints, manifests, hooks, or orchestration.
 - Unsupported files are listed in the generated summary instead of failing the whole render.
+
+### APBF-310: Add Question Answer Routing Workflow
+
+Status: done
+
+Goal: Define how APB should ask Open Questions when source documents are unclear, then use owner answers to route confirmed knowledge into the correct `.agent/` files.
+
+Expected output:
+
+- Planning note for question-answer routing.
+- Owner-reviewed routing map.
+- Template and documentation updates after approval.
+- Optional CLI enhancement only if the reviewed design proves it is needed.
+
+Result:
+
+- Planning review chose template/rule updates only.
+- Added routing rules to generated `.agent/AGENTS.md`.
+- Added matching routing rules to APBF's own `.agent/AGENTS.md`.
+- Documented the behavior in `README.md`.
+- Deferred CLI support until real usage shows structured Open Questions are needed.
 
 ### APBF-401: Evaluate Whether Manifest Is Needed
 

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document defines the canonical structure for APBF planning documents under the `planning/` directory.
+This document defines the canonical structure for APBF planning documents under the `.agent/planning/` directory.
 
 It standardizes Methodology planning documents so they remain consistent, maintainable, domain-neutral, and implementation-neutral.
 
@@ -21,7 +21,7 @@ This is not a project template, not a software specification template, and not a
 
 ## Mandatory Sections
 
-Every planning document under `planning/` must include the following sections unless an approved architecture review explicitly allows an exception.
+Every planning document under `.agent/planning/` must include the following sections unless an approved architecture review explicitly allows an exception.
 
 ### Metadata
 
@@ -241,6 +241,6 @@ The structure supports long-term maintainability by making every document review
 
 ## Boundary
 
-This template only defines the standard structure for Methodology planning documents under `planning/`.
+This template only defines the standard structure for Methodology planning documents under `.agent/planning/`.
 
 This template does not define Product Planning Methodology, Governance, Bootstrap Workflow, Knowledge Lifecycle, CLI, generator, VSCode extension, Codex integration, or software project templates.

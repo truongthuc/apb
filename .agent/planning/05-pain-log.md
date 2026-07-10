@@ -33,9 +33,9 @@ Result: Passed.
 Generated:
 
 - `README.md`
-- `.agent/project-rules.md`
-- `planning/00-bootstrap.md`
-- `planning/01-task-list.md`
+- `.agent/AGENTS.md`
+- `.agent/planning/00-bootstrap.md`
+- `.agent/planning/01-task-list.md`
 
 Notes:
 
@@ -49,9 +49,9 @@ Result: Passed.
 Generated:
 
 - `README.md`
-- `.agent/project-rules.md`
-- `planning/00-bootstrap.md`
-- `planning/01-task-list.md`
+- `.agent/AGENTS.md`
+- `.agent/planning/00-bootstrap.md`
+- `.agent/planning/01-task-list.md`
 
 Notes:
 

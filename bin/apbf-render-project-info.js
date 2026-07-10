@@ -13,7 +13,7 @@ if (!sourceArg) {
 
 const sourcePath = path.resolve(process.cwd(), sourceArg);
 const projectRoot = path.resolve(process.cwd(), targetArg || ".");
-const planningDir = path.join(projectRoot, "planning");
+const planningDir = path.join(projectRoot, ".agent", "planning");
 const outputFile = path.join(planningDir, "02-project-summary.md");
 
 if (!fs.existsSync(sourcePath)) {
@@ -313,7 +313,7 @@ Status: Draft
 
 ## Next Action
 
-Review this summary against the source BA description, fill any missing sections, and update \`planning/00-bootstrap.md\` if the project scope or constraints changed.
+Review this summary against the source BA description, fill any missing sections, and update \`.agent/planning/00-bootstrap.md\` if the project scope or constraints changed.
 `;
 }
 

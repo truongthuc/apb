@@ -8,9 +8,9 @@ This repository was bootstrapped with APBF.
 
 Begin with:
 
-1. `.agent/project-rules.md`
-2. `planning/00-bootstrap.md`
-3. `planning/01-task-list.md`
+1. `.agent/AGENTS.md`
+2. `.agent/planning/00-bootstrap.md`
+3. `.agent/planning/01-task-list.md`
 
 ## Bootstrap Status
 
@@ -18,4 +18,4 @@ Status: Draft
 
 ## Next Step
 
-Review the bootstrap plan, confirm repository boundaries, and choose the first task from `planning/01-task-list.md`.
+Review the bootstrap plan, confirm repository boundaries, and choose the first task from `.agent/planning/01-task-list.md`.

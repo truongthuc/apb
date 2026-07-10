@@ -24,6 +24,26 @@ To be defined.
 
 - To be defined.
 
+## Confirmed Requirements
+
+- To be defined.
+
+## Assumptions
+
+- To be defined.
+
+## Open Questions
+
+- To be defined.
+
+## Risk Areas / Unknowns
+
+- To be defined.
+
+## Validation Plan
+
+- To be defined.
+
 ## Project Intent
 
 To be defined.
@@ -42,4 +62,4 @@ Status: Draft
 
 ## Next Action
 
-Review this bootstrap plan, then choose or revise the first task in `planning/01-task-list.md`.
+Review this bootstrap plan, then choose or revise the first task in `.agent/planning/01-task-list.md`.

@@ -17,7 +17,7 @@ Define the first useful implementation goal for `{{PROJECT_NAME}}`.
 
 Status: todo
 
-Goal: Review `planning/00-bootstrap.md` and confirm the project scope, constraints, and first implementation direction.
+Goal: Review `.agent/planning/00-bootstrap.md` and confirm the project scope, constraints, and first implementation direction.
 
 Expected output:
 
@@ -33,8 +33,12 @@ Goal: Define the smallest useful workflow or feature that proves the project can
 Expected output:
 
 - One clear vertical slice.
+- Confirmed requirements.
+- Assumptions that need owner review.
+- Open questions and risk areas.
 - Explicit out-of-scope items.
 - Success criteria.
+- Validation plan.
 
 ### TASK-003: Implement First Vertical Slice
 
