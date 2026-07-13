@@ -27,6 +27,16 @@ For every software task, follow this order:
 
 Never start implementation before planning and design are reviewed.
 
+## Project Orientation
+
+Before starting a non-trivial task, read `.agent/project-context.md` to understand what the project does, who it serves, its boundaries, core workflows, domain terms, constraints, and open questions.
+
+During first bootstrap only, if `.agent/project-context.md` is missing, empty, or still contains only placeholder content, ask the owner for a one-time project description and use it to populate `.agent/project-context.md`. After `.agent/project-context.md` is populated, do not repeat the initial description step; read the file as the durable project brief and update it only when project context actually changes.
+
+If `.agent/project-context.md` remains incomplete after bootstrap, treat project orientation as incomplete. Ask the owner for the minimum context needed before making product, architecture, or business-logic changes.
+
+For small known-known tasks, only read the project context when the change could affect product behavior, business rules, user-facing workflows, terminology, or architecture.
+
 ## Knowledge Coverage And Unknowns
 
 Planning and design reduce misunderstanding but do not remove missing context. For every feature or workflow request, classify project knowledge into these buckets when the task has meaningful ambiguity, risk, or implementation impact:

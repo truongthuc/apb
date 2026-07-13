@@ -37,6 +37,16 @@ For every software task, follow this order:
 
 Never start implementation before planning and design are reviewed unless the user explicitly narrows the task to documentation or repository setup.
 
+## Project Orientation
+
+Before starting a non-trivial task, read `.agent/project-context.md` to understand what APB is, what it is not, its framework boundaries, template responsibilities, terminology, constraints, and open questions.
+
+If `.agent/project-context.md` is missing, empty, or stale, update it before making framework behavior, template, architecture, or workflow changes.
+
+Generated projects should populate `.agent/project-context.md` once during first bootstrap from the owner's project description. After that, agents should read it as durable context and update it only when project context changes.
+
+For small known-known tasks, only read the project context when the change could affect framework behavior, generated project structure, workflow rules, terminology, or architecture.
+
 ## Knowledge Coverage And Unknowns
 
 Planning and design reduce misunderstanding but do not remove missing context. For every feature, workflow, or framework behavior request, classify project knowledge into these buckets when the task has meaningful ambiguity, risk, or implementation impact:

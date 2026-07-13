@@ -1,7 +1,63 @@
 # Project Context
 
-This file stores long-term project context for AI agents.
+This file is the durable project brief for AI agents. Keep it current so a new agent can quickly understand what this project is, why it exists, who it serves, and what must stay out of scope.
+
+Bootstrap note: populate this file once during initial project bootstrap from the owner's project description. After it is populated, agents should read it as durable context and update it only when the project context changes.
 
 ## Summary
 
-No project context recorded yet.
+To be defined.
+
+## Product Purpose
+
+To be defined.
+
+## Primary Users
+
+To be defined.
+
+## Operating Context
+
+To be defined.
+
+## Core Workflows
+
+- To be defined.
+
+## In Scope
+
+- To be defined.
+
+## Out of Scope
+
+- To be defined.
+
+## Domain Terms
+
+| Term | Meaning |
+|---|---|
+| To be defined | To be defined |
+
+## Business Rules Index
+
+- See `.agent/business-rules.md`.
+
+## Technical Context
+
+To be defined.
+
+## External Systems
+
+- To be defined.
+
+## Constraints
+
+- To be defined.
+
+## Open Questions
+
+- To be defined.
+
+## Last Reviewed
+
+To be defined.

@@ -70,6 +70,7 @@ Sau khi tạo xong, bắt đầu từ các file này:
 ```text
 AGENTS.md
 .agent/AGENTS.md
+.agent/project-context.md
 .agent/planning/00-bootstrap.md
 .agent/planning/01-task-list.md
 ```
@@ -157,6 +158,8 @@ Fix Feedback
 Update Documentation
 Update Agent Knowledge
 ```
+
+`.agent/project-context.md` là project brief bền vững để agent mới hiểu dự án làm gì, phục vụ ai, phạm vi nào được làm, phạm vi nào không làm, workflow chính, thuật ngữ domain, constraint, và câu hỏi mở. Khi bootstrap lần đầu, agent hỏi mô tả dự án một lần để sinh file này; sau khi file đã có nội dung thì các lần sau chỉ đọc lại và cập nhật khi context thật sự thay đổi.
 
 Template planning tách rõ yêu cầu đã xác nhận, giả định, câu hỏi mở, rủi ro, phạm vi không làm, và kế hoạch kiểm chứng khi task có độ mơ hồ, rủi ro, hoặc ảnh hưởng triển khai đáng kể. Với task known-known nhỏ như sửa typo, đổi text, hoặc thêm config đơn giản, agent chỉ cần nêu assumption, risk, hoặc validation note nếu chúng thật sự tồn tại.
 
