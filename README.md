@@ -158,7 +158,7 @@ Update Documentation
 Update Agent Knowledge
 ```
 
-Template planning tách rõ yêu cầu đã xác nhận, giả định, câu hỏi mở, rủi ro, phạm vi không làm, và kế hoạch kiểm chứng. Khi yêu cầu hoặc tài liệu nguồn chưa rõ, agent phải hỏi lại thay vì đoán im lặng.
+Template planning tách rõ yêu cầu đã xác nhận, giả định, câu hỏi mở, rủi ro, phạm vi không làm, và kế hoạch kiểm chứng khi task có độ mơ hồ, rủi ro, hoặc ảnh hưởng triển khai đáng kể. Với task known-known nhỏ như sửa typo, đổi text, hoặc thêm config đơn giản, agent chỉ cần nêu assumption, risk, hoặc validation note nếu chúng thật sự tồn tại.
 
 ## Dự án đã có sẵn
 

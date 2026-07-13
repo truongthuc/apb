@@ -39,16 +39,20 @@ Never start implementation before planning and design are reviewed unless the us
 
 ## Knowledge Coverage And Unknowns
 
-Planning and design reduce misunderstanding but do not remove missing context. For every feature, workflow, or framework behavior request, classify project knowledge into these buckets:
+Planning and design reduce misunderstanding but do not remove missing context. For every feature, workflow, or framework behavior request, classify project knowledge into these buckets when the task has meaningful ambiguity, risk, or implementation impact:
 
 - Confirmed Requirements: the owner explicitly described the requirement and the agent can trace it to the request or existing documentation.
-- Assumptions: the owner may know the requirement, but it was not fully described to the agent. State the assumption clearly and mark it for review.
-- Open Questions: information that is required before implementation can proceed safely.
+- Assumptions: the owner may know the requirement, but it was not fully described to the agent. State the assumption clearly and continue only when the assumption is safe and reversible.
+- Open Questions: information that is required before implementation can proceed safely. Ask the owner instead of guessing when an Open Question blocks implementation.
 - Risk Areas / Unknowns: areas the owner may not have identified yet and the agent cannot fully infer from the request.
 - Out of Scope: related behavior intentionally excluded from the current task.
 - Validation Plan: how the implementation will prove the confirmed requirements and assumptions.
 
-During Planning Review and Design Review, explicitly ask the owner to validate assumptions and risk areas. Do not treat a plan as complete just because the request was short.
+For known-known work, where the owner clearly states the requested change and the agent understands it, use a lightweight form. Small tasks such as typo fixes, text changes, and simple configuration updates only need assumptions, risks, or validation notes when they actually exist.
+
+Planning Review and Design Review should scale with task complexity. For complex or ambiguous tasks, explicitly ask the owner to validate assumptions and risk areas before freezing planning or design. For small known-known tasks with no meaningful unknowns, the owner's request can serve as sufficient review.
+
+Do not turn the knowledge buckets into a formal checklist. Their value is to expose missing knowledge, not to force headings into every small task.
 
 When a requirement is discovered after implementation begins, record it in the relevant planning note, review history, business rules, or architecture decision before continuing.
 

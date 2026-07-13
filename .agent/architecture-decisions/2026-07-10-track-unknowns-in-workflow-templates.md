@@ -2,7 +2,7 @@
 
 Date: 2026-07-10
 
-Status: Accepted
+Status: Accepted, amended by 2026-07-13-scale-known-known-workflow.md
 
 ## Context
 
@@ -10,9 +10,11 @@ APBF generated projects use a review-first workflow before implementation. That 
 
 ## Decision
 
-APBF templates will require planning and design artifacts to classify feature knowledge into confirmed requirements, assumptions, open questions, risk areas / unknowns, out-of-scope behavior, and validation plans.
+APBF templates will require planning and design artifacts to classify feature knowledge into confirmed requirements, assumptions, open questions, risk areas / unknowns, out-of-scope behavior, and validation plans when the task has meaningful ambiguity, risk, or implementation impact.
 
 Agents must explicitly ask the owner to review assumptions and risk areas during Planning Review and Design Review. Requirements discovered later must be recorded in the relevant planning note, review history, business rules, or architecture decision before continuing.
+
+Known-known tasks, where the owner clearly states the requested change and the agent understands it, may use a lightweight form. Small typo fixes, text changes, and simple configuration updates only need assumptions, risks, or validation notes when they actually exist.
 
 ## Alternatives Considered
 
@@ -21,7 +23,7 @@ Agents must explicitly ask the owner to review assumptions and risk areas during
 
 ## Consequences
 
-Planning artifacts become slightly heavier, but they better support iterative discovery and reduce silent assumptions. Generated projects will start with template sections that make missing context visible from the first feature request.
+Planning artifacts become slightly heavier for complex work, but they better support iterative discovery and reduce silent assumptions. Generated projects will make missing context visible without forcing full bucket headings for every small known-known task.
 
 ## Links
 
