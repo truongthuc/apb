@@ -109,6 +109,28 @@ Root `docs/` is optional and should only be used for human-facing framework docu
 
 Root `AGENTS.md` and `CLAUDE.md` are bridge files pointing to `.agent/AGENTS.md`. Keep these bridge files thin and do not duplicate project rules in them. Codex, Claude, and other agents should share `.agent/AGENTS.md` as the source of truth.
 
+## Generated Code Organization
+
+APB-generated projects include lightweight, framework-first code organization guidance.
+
+For projects without an existing framework or repository structure, APB provides this recommended baseline:
+
+```text
+src/
+  app/
+  modules/
+  shared/
+    kernel/
+    adapters/
+  integrations/
+  tests/
+    helpers/
+```
+
+Keep this baseline domain-neutral. Do not add framework-specific implementation files, product-specific modules, or application business logic to the APB template.
+
+Generated projects use `.agent/docs/code-organization.md` as the source of truth for framework mapping, module boundaries, shared code rules, and reuse checks. Template updates that affect code placement must update that document and the generated `.agent/AGENTS.md` rules together.
+
 ## Documentation
 
 Documentation is a living artifact.

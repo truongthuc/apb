@@ -73,6 +73,7 @@ AGENTS.md
 .agent/project-context.md
 .agent/planning/00-bootstrap.md
 .agent/planning/01-task-list.md
+.agent/docs/code-organization.md
 ```
 
 Prompt gợi ý cho coding agent:
@@ -128,6 +129,7 @@ CLAUDE.md
     template.md
   docs/
     README.md
+    code-organization.md
   planning/
     00-bootstrap.md
     01-task-list.md
@@ -135,6 +137,16 @@ CLAUDE.md
   review-history/
     README.md
   reviews/
+src/
+  app/
+  modules/
+    example-module/
+  shared/
+    kernel/
+    adapters/
+  integrations/
+tests/
+  helpers/
 ```
 
 Tài liệu dành cho agent nằm trong `.agent/`.
@@ -163,6 +175,25 @@ Update Agent Knowledge
 
 Template planning tách rõ yêu cầu đã xác nhận, giả định, câu hỏi mở, rủi ro, phạm vi không làm, và kế hoạch kiểm chứng khi task có độ mơ hồ, rủi ro, hoặc ảnh hưởng triển khai đáng kể. Với task known-known nhỏ như sửa typo, đổi text, hoặc thêm config đơn giản, agent chỉ cần nêu assumption, risk, hoặc validation note nếu chúng thật sự tồn tại.
 
+APB cũng tạo sẵn hướng dẫn tổ chức code để giảm khả năng agent ở nhiều thread sinh helper hoặc abstraction trùng nhau. Nếu dự án dùng framework hoặc đã có convention riêng, agent phải ưu tiên convention đó và ghi mapping vào `.agent/docs/code-organization.md`.
+
+Với dự án chưa có cấu trúc rõ, APB cung cấp baseline trung lập:
+
+```text
+src/
+  app/
+  modules/
+    example-module/
+  shared/
+    kernel/
+    adapters/
+  integrations/
+  tests/
+    helpers/
+```
+
+Quy tắc chi tiết nằm trong `.agent/docs/code-organization.md`: logic theo feature nằm trong boundary của framework hoặc module, shared code chỉ dùng khi reuse đã rõ hoặc được owner chấp thuận, và agent không được tạo các file/thư mục catch-all như `utils`, `helpers`, `common`, hoặc `misc`.
+
 ## Dự án đã có sẵn
 
 APB v0.1 chưa tự khởi tạo vào thư mục dự án đã có file.
@@ -180,6 +211,8 @@ npm bin -g
 Nếu thư mục đích không trống, tạo thư mục mới hoặc chờ command hỗ trợ existing project trong phiên bản sau.
 
 Nếu `apb-render-project-info` báo file output đã tồn tại, review `.agent/planning/02-project-summary.md` trước khi quyết định xoá, đổi tên, hoặc archive.
+
+`create-apb` bỏ qua một số file noise phổ biến như `.DS_Store` và `Thumbs.db` khi copy template.
 
 ## README tiếng Anh
 

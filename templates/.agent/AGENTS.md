@@ -73,6 +73,36 @@ Routing rules:
 
 If one owner answer contains multiple knowledge types, split it across the appropriate files instead of forcing it into one document. Preserve traceability by noting the source question, answer, or review decision where practical.
 
+## Code Organization
+
+Use `.agent/docs/code-organization.md` as the source of truth for repository code structure.
+
+If the project already uses a framework, platform, monorepo layout, or established repository convention, follow that convention first and document the mapping in `.agent/docs/code-organization.md`.
+
+For projects without an existing structure, use this recommended baseline:
+
+```text
+src/
+  app/
+  modules/
+  shared/
+    kernel/
+    adapters/
+  integrations/
+  tests/
+    helpers/
+```
+
+Feature-specific logic must live inside the framework's feature/module boundary, or inside `src/modules/<module-name>/` when the recommended baseline is used.
+
+Reusable code may be added to the project's shared-code location only when at least two modules need it, or when the project owner explicitly approves it as shared infrastructure.
+
+Do not create generic catch-all helpers or directories such as `utils`, `helpers`, `common`, `misc`, `shared.ts`, or `helpers.ts`.
+
+Before adding a helper, utility, abstraction, shared module, or new module, search the repository for existing equivalent behavior. Reuse or extend existing code when appropriate.
+
+When new shared code is necessary, document why existing code is insufficient in the task plan or review summary, then update `.agent/docs/code-organization.md` if the structure, framework mapping, or reusable pattern changes.
+
 ## Project Structure
 
 Use this structure for agent-facing workflow material:
@@ -83,6 +113,7 @@ Use this structure for agent-facing workflow material:
   artifacts/
   planning/
   docs/
+    code-organization.md
   architecture-decisions/
     README.md
   previews/

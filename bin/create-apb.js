@@ -13,6 +13,7 @@ if (!projectName) {
 const templateDir = path.resolve(__dirname, "..", "templates");
 const targetDir = path.resolve(process.cwd(), projectName);
 const replacement = path.basename(targetDir);
+const ignoredTemplateEntries = new Set([".DS_Store", "Thumbs.db"]);
 
 if (!fs.existsSync(templateDir)) {
   console.error(`Template directory not found: ${templateDir}`);
@@ -27,6 +28,10 @@ if (fs.existsSync(targetDir) && fs.readdirSync(targetDir).length > 0) {
 fs.mkdirSync(targetDir, { recursive: true });
 
 function copyTemplate(source, target) {
+  if (ignoredTemplateEntries.has(path.basename(source))) {
+    return;
+  }
+
   const stat = fs.statSync(source);
 
   if (stat.isDirectory()) {

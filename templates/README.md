@@ -14,6 +14,28 @@ Begin with:
 4. `.agent/project-context.md`
 5. `.agent/planning/00-bootstrap.md`
 6. `.agent/planning/01-task-list.md`
+7. `.agent/docs/code-organization.md`
+
+## Code Structure
+
+APB starts projects with lightweight code organization guidance. If the project already uses a framework or established repository convention, follow that convention first and document the mapping in `.agent/docs/code-organization.md`.
+
+For projects without an existing structure, APB provides this framework-neutral baseline:
+
+```text
+src/
+  app/
+  modules/
+    example-module/
+  shared/
+    kernel/
+    adapters/
+  integrations/
+  tests/
+    helpers/
+```
+
+Before adding helpers, utilities, shared modules, or abstractions, read `.agent/docs/code-organization.md`.
 
 ## Bootstrap Status
 

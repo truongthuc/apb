@@ -36,6 +36,27 @@ Minimum description to capture:
 
 To be defined.
 
+## Code Organization Baseline
+
+If the project already uses a framework or established repository convention, follow that convention and document the project-specific mapping in `.agent/docs/code-organization.md`.
+
+Recommended baseline for projects without an existing structure:
+
+```text
+src/
+  app/
+  modules/
+    example-module/
+  shared/
+    kernel/
+    adapters/
+  integrations/
+  tests/
+    helpers/
+```
+
+Review `.agent/docs/code-organization.md` before the first implementation task. Keep feature-specific logic inside the project's feature/module boundary, keep shared code small and domain-neutral, and avoid generic helper files.
+
 ## In Scope
 
 - To be defined.
@@ -67,6 +88,13 @@ To be defined.
 ## Validation Plan
 
 - To be defined.
+
+## Reuse Check
+
+- Existing helpers, modules, or patterns searched: To be defined.
+- Existing code to reuse or extend: To be defined.
+- New helper, utility, abstraction, or module needed: To be defined.
+- Reason existing code is insufficient: To be defined.
 
 ## Project Intent
 

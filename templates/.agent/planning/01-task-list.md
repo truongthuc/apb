@@ -39,6 +39,7 @@ Expected output:
 - Explicit out-of-scope items.
 - Success criteria.
 - Validation plan.
+- Code organization and reuse check.
 
 ### TASK-003: Implement First Vertical Slice
 
@@ -51,6 +52,7 @@ Expected output:
 - Working implementation.
 - Basic verification result.
 - Pain list from implementation.
+- Updated `.agent/docs/code-organization.md` if new shared code or module boundaries were introduced.
 
 ### TASK-004: Review Implementation Pain
 
