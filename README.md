@@ -70,6 +70,7 @@ Sau khi tạo xong, bắt đầu từ các file này:
 ```text
 AGENTS.md
 .agent/AGENTS.md
+.agent/index.md
 .agent/project-context.md
 .agent/planning/00-bootstrap.md
 .agent/planning/01-task-list.md
@@ -120,6 +121,7 @@ AGENTS.md
 CLAUDE.md
 .agent/
   AGENTS.md
+  index.md
   business-rules.md
   naming-conventions.md
   project-context.md
@@ -153,6 +155,8 @@ Tài liệu dành cho agent nằm trong `.agent/`.
 
 Root `AGENTS.md` và `CLAUDE.md` là file cầu nối mỏng về `.agent/AGENTS.md`. APB giữ `.agent/AGENTS.md` làm nguồn sự thật chung, còn `CLAUDE.md` tồn tại để Claude nhận đúng entry point.
 
+`.agent/index.md` là bản đồ tri thức bền vững cho agent. APB dùng mô hình note-link kiểu Obsidian nhưng giữ toàn bộ nội dung ở Markdown thuần: link chính dùng đường dẫn Markdown tương đối, còn wiki link hoặc tính năng riêng của editor chỉ được xem là phụ trợ.
+
 ## Quy trình làm việc
 
 Dự án được tạo bởi APB dùng quy trình review-first:
@@ -172,6 +176,8 @@ Update Agent Knowledge
 ```
 
 `.agent/project-context.md` là project brief bền vững để agent mới hiểu dự án làm gì, phục vụ ai, phạm vi nào được làm, phạm vi nào không làm, workflow chính, thuật ngữ domain, constraint, và câu hỏi mở. Khi bootstrap lần đầu, agent hỏi mô tả dự án một lần để sinh file này; sau khi file đã có nội dung thì các lần sau chỉ đọc lại và cập nhật khi context thật sự thay đổi.
+
+Khi dự án lớn lên, agent có thể thêm các note như `features/`, `modules/`, `concepts/`, hoặc `workflows/` trong `.agent/` và liên kết chúng từ `.agent/index.md`. Các note quan trọng nên có phần `Related Knowledge` để nối feature, rule, ADR, review, và module boundary với nhau.
 
 Template planning tách rõ yêu cầu đã xác nhận, giả định, câu hỏi mở, rủi ro, phạm vi không làm, và kế hoạch kiểm chứng khi task có độ mơ hồ, rủi ro, hoặc ảnh hưởng triển khai đáng kể. Với task known-known nhỏ như sửa typo, đổi text, hoặc thêm config đơn giản, agent chỉ cần nêu assumption, risk, hoặc validation note nếu chúng thật sự tồn tại.
 

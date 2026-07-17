@@ -11,10 +11,13 @@ Begin with:
 1. `AGENTS.md`
 2. `CLAUDE.md` when using Claude
 3. `.agent/AGENTS.md`
-4. `.agent/project-context.md`
-5. `.agent/planning/00-bootstrap.md`
-6. `.agent/planning/01-task-list.md`
-7. `.agent/docs/code-organization.md`
+4. `.agent/index.md`
+5. `.agent/project-context.md`
+6. `.agent/planning/00-bootstrap.md`
+7. `.agent/planning/01-task-list.md`
+8. `.agent/docs/code-organization.md`
+
+`.agent/index.md` is the durable memory map. Use it to connect project context, rules, decisions, reviews, feature notes, module notes, concept notes, and workflow notes with relative Markdown links.
 
 ## Code Structure
 

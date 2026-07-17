@@ -27,6 +27,7 @@ The generated project is expected to continue evolving its `.agent/` files as re
 ## Core Workflows
 
 - Bootstrap a new project from `templates/` using `create-apb`.
+- Start agent orientation from `.agent/index.md` when a project provides one, then follow linked source-of-truth notes.
 - Read root bridge files, then follow `.agent/AGENTS.md`.
 - Fill `.agent/project-context.md` so agents understand what the generated project does.
 - Use `.agent/planning/` for task planning and current scope.
@@ -65,6 +66,8 @@ In scope:
 | Agent memory | Durable `.agent/` documentation that helps future agents preserve context. |
 | Bridge file | A thin root file such as `AGENTS.md` or `CLAUDE.md` that points tools to `.agent/AGENTS.md`. |
 | Project context | The durable project brief in `.agent/project-context.md`. |
+| Agent memory index | The navigation map in `.agent/index.md` that links durable source-of-truth notes. |
+| Note-linked memory | Plain-Markdown project knowledge connected by relative links, inspired by Obsidian-style note graphs without requiring Obsidian. |
 | Known-known task | A task where the owner clearly knows the request and the agent understands it. |
 | Open Question | Missing information that blocks safe implementation. |
 | Assumption | A safe, reversible interpretation that can be stated while work continues. |
@@ -84,6 +87,7 @@ In scope:
 - `apb-render-project-info` reads Markdown, text, DOCX files, or supported source directories and creates `.agent/planning/02-project-summary.md`.
 - The template source of truth lives under `templates/`.
 - Generated projects use `.agent/` for agent-facing long-term memory.
+- Generated projects include `.agent/index.md` as the entry point for note-linked agent memory.
 
 ## External Systems
 
@@ -97,6 +101,7 @@ In scope:
 - Communicate with the project owner in Vietnamese.
 - Commit only when explicitly requested.
 - Keep generated templates simple until real usage justifies added abstraction.
+- Required agent memory must remain plain Markdown and must not depend on Obsidian-only features.
 
 ## Open Questions
 
@@ -108,6 +113,8 @@ In scope:
 
 Generated projects use `.agent/project-context.md` as the durable project brief for AI agents. That file should explain what the project does, why it exists, who it serves, core workflows, boundaries, domain terms, constraints, and open questions before non-trivial implementation work begins.
 
+Generated projects also include `.agent/index.md` as the durable memory map. Agents should update the index when adding important notes, moving source-of-truth documents, or introducing feature, module, concept, or workflow notes.
+
 ## Last Reviewed
 
-2026-07-13
+2026-07-17

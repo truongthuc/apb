@@ -39,6 +39,8 @@ Never start implementation before planning and design are reviewed unless the us
 
 ## Project Orientation
 
+Before following links into specialized notes, start from `.agent/index.md` when it exists. The index is the map of durable project memory and should point to the current source-of-truth notes for context, rules, decisions, planning, reviews, and feature or module knowledge.
+
 Before starting a non-trivial task, read `.agent/project-context.md` to understand what APB is, what it is not, its framework boundaries, template responsibilities, terminology, constraints, and open questions.
 
 If `.agent/project-context.md` is missing, empty, or stale, update it before making framework behavior, template, architecture, or workflow changes.
@@ -83,6 +85,36 @@ Routing rules:
 
 If one owner answer contains multiple knowledge types, split it across the appropriate files instead of forcing it into one document. Preserve traceability by noting the source question, answer, or review decision where practical.
 
+## Note-Linked Agent Memory
+
+APB uses `.agent/` as a plain-Markdown knowledge graph. Agents should maintain readable notes that link related project knowledge together without requiring Obsidian or any editor-specific runtime.
+
+Use `.agent/index.md` as the first navigation surface for durable memory. Update it whenever adding, moving, renaming, or promoting an important note.
+
+Prefer relative Markdown links for required knowledge:
+
+```md
+[Project Context](project-context.md)
+```
+
+Wiki-style links such as `[[Project Context]]` may be used only as supplemental editor affordances. Do not store required knowledge exclusively in Obsidian-only syntax, canvas files, Dataview queries, embeds, or plugin metadata.
+
+Important notes should be self-contained enough to read outside a graph view. When useful, include simple YAML frontmatter:
+
+```yaml
+---
+type: feature
+status: active
+updated: 2026-07-17
+related:
+  - ../business-rules.md
+---
+```
+
+Use the smallest note that represents a durable concept, not one note per function. Good note boundaries include project context, business rules, architecture decisions, module boundaries, domain concepts, workflows, API contracts, review outcomes, and reusable implementation patterns.
+
+Each durable note should include a `Related Knowledge` section when cross-links would help future agents trace behavior, constraints, or decisions.
+
 ## Project Structure
 
 APB stores agent-facing planning and documentation inside `.agent/`.
@@ -92,6 +124,7 @@ Required structure:
 ```text
 .agent/
   AGENTS.md
+  index.md
   artifacts/
   planning/
   docs/
@@ -158,6 +191,8 @@ Automatically update `.agent/` when discovering:
 - Template conventions.
 - Review decisions.
 - Technical constraints.
+
+When updating agent memory, also update related note links and `.agent/index.md` if the change affects durable navigation.
 
 Record architecture decisions as separate ADR files in `.agent/architecture-decisions/`.
 
