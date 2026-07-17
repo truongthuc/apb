@@ -1,6 +1,35 @@
 # AI Project Bootstrap
 
-APB là công cụ nhỏ để khởi tạo dự án phần mềm có AI agent hỗ trợ. Mục tiêu của APB là tạo sẵn cấu trúc làm việc chung: luật cho agent, kế hoạch, tài liệu, review, và nơi lưu tri thức dự án.
+APB là bộ khởi tạo dự án phần mềm dành cho cách làm việc có AI coding agent tham gia. Nó không phải framework ứng dụng, không phải runtime orchestration, và không cố thay thế quy trình phát triển hiện có. APB chỉ tạo sẵn một nền làm việc có kỷ luật để con người và agent cùng hiểu dự án, cùng theo một workflow, và không làm mất ngữ cảnh sau mỗi phiên làm việc.
+
+Nói ngắn gọn: APB giúp bạn bắt đầu một repo mới với sẵn luật làm việc cho agent, nơi lưu tri thức dự án, kế hoạch, review, tài liệu kỹ thuật, ADR, và cấu trúc code baseline.
+
+## APB giải quyết vấn đề gì
+
+Khi dùng AI agent để làm phần mềm, vấn đề thường không nằm ở việc agent có viết code được hay không. Vấn đề là agent dễ thiếu ngữ cảnh, hỏi lại nhiều lần, tạo helper trùng, bỏ qua quyết định cũ, hoặc sửa code trước khi thống nhất yêu cầu.
+
+APB tạo sẵn một lớp "project memory" trong repo để giảm các lỗi đó:
+
+- Agent biết phải đọc gì trước khi sửa code.
+- Yêu cầu, giả định, câu hỏi mở, rủi ro, và kế hoạch kiểm chứng có chỗ để ghi lại.
+- Quyết định kiến trúc được lưu thành ADR thay vì trôi trong chat.
+- Review history được giữ lại để agent sau hiểu vì sao một hướng đã được chọn hoặc bị loại.
+- Quy tắc tổ chức code giúp hạn chế việc sinh `utils`, `helpers`, `common` lung tung.
+- Root `AGENTS.md` và `CLAUDE.md` đóng vai trò entry point mỏng để nhiều agent cùng đi về một nguồn sự thật trong `.agent/AGENTS.md`.
+
+## Điểm đáng dùng
+
+APB đáng dùng khi bạn muốn AI agent làm việc lâu dài trong repo, không chỉ trả lời một lần trong chat.
+
+Các điểm mạnh chính:
+
+- **Có cấu trúc ngay từ đầu:** dự án mới có sẵn `.agent/`, planning, docs, review history, ADR, và code organization guidance.
+- **Giảm mất ngữ cảnh:** project brief nằm ở `.agent/project-context.md`, còn `.agent/index.md` là bản đồ tri thức để agent mới tự định hướng.
+- **Review-first:** workflow mặc định đi từ planning, review, design, implementation, code review, rồi mới cập nhật docs và agent knowledge.
+- **Không khóa vào framework:** APB trung lập với domain và framework. Nếu dự án đã có convention riêng, agent phải ưu tiên convention đó.
+- **Markdown thuần:** agent memory là file Markdown trong repo, không phụ thuộc Obsidian, database, SaaS, hoặc plugin riêng.
+- **An toàn với repo đã có file:** bản v0.1 không tự merge vào thư mục không trống để tránh ghi đè nhầm.
+- **Có công cụ render tài liệu BA:** `apb-render-project-info` có thể đọc `.md`, `.txt`, `.docx` và tạo project summary ban đầu cho agent.
 
 ## APB hiện làm gì
 
@@ -9,9 +38,29 @@ Phiên bản v0.1 cố ý đơn giản:
 - Sao chép bộ template vào dự án mới.
 - Thay `{{PROJECT_NAME}}` bằng tên thư mục dự án.
 - Tạo cấu trúc `.agent/` để agent và chủ dự án làm việc có kỷ luật.
-- Cung cấp lệnh render tài liệu BA thành tóm tắt dự án.
+- Tạo root `AGENTS.md` và `CLAUDE.md` làm file cầu nối cho agent.
+- Tạo baseline code structure trung lập cho dự án chưa có framework.
+- Cung cấp lệnh render tài liệu BA thành `.agent/planning/02-project-summary.md`.
 
 APB chưa có manifest, hook, profile, blueprint, plugin, orchestration, hoặc tự động merge vào dự án đã có sẵn file.
+
+## Khi nào nên dùng
+
+Dùng APB khi:
+
+- Bạn bắt đầu một repo mới và muốn AI agent có quy trình rõ ngay từ đầu.
+- Bạn muốn agent ghi nhớ business rules, architecture decisions, review decisions, và task context trong repo.
+- Bạn làm việc với nhiều agent hoặc nhiều phiên chat khác nhau và cần một nguồn sự thật chung.
+- Bạn muốn hạn chế việc agent tự ý tạo abstraction, helper, hoặc cấu trúc code không thống nhất.
+- Bạn có tài liệu mô tả dự án/BA và muốn biến nó thành project summary để agent đọc trước.
+
+Không nên kỳ vọng APB là:
+
+- Framework frontend/backend.
+- Công cụ quản lý task thay Jira/Linear.
+- AI orchestrator chạy nhiều agent tự động.
+- Template engine phức tạp cho mọi loại stack.
+- Công cụ migrate tự động cho repo đã có sẵn.
 
 ## Yêu cầu
 
