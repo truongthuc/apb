@@ -241,6 +241,8 @@ test("bootstraps a self-contained routing runtime for agents", (context) => {
   const engine = path.join(projectRoot, ".agent/tools/context-routing/index.js");
   assert.ok(fs.existsSync(runtime));
   assert.ok(fs.existsSync(engine));
+  assert.equal(fs.existsSync(path.join(projectRoot, "src")), false);
+  assert.equal(fs.existsSync(path.join(projectRoot, "tests")), false);
   assert.ok(fs.readFileSync(path.join(projectRoot, ".gitignore"), "utf8").split(/\r?\n/).includes(".agent/runtime/"));
 
   const validation = JSON.parse(execFileSync(process.execPath, [runtime, "validate", "--json"], {

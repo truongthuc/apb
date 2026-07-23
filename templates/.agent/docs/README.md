@@ -11,4 +11,4 @@ For broad orientation, start from [Agent Memory Index](../index.md). Documentati
 
 ## Included Documents
 
-- `code-organization.md` defines framework-first structure mapping, the recommended baseline source layout, module boundaries, shared code rules, and reuse checks.
+- `code-organization.md` records the selected framework/CMS structure mapping, module boundaries, shared code rules, and reuse checks. APB does not provide a default source skeleton.

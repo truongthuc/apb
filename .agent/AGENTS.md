@@ -163,23 +163,9 @@ Root `AGENTS.md` and `CLAUDE.md` are bridge files pointing to `.agent/AGENTS.md`
 
 ## Generated Code Organization
 
-APB-generated projects include lightweight, framework-first code organization guidance.
+APB-generated projects include framework-first code organization guidance but no application source or test skeleton.
 
-For projects without an existing framework or repository structure, APB provides this recommended baseline:
-
-```text
-src/
-  app/
-  modules/
-  shared/
-    kernel/
-    adapters/
-  integrations/
-  tests/
-    helpers/
-```
-
-Keep this baseline domain-neutral. Do not add framework-specific implementation files, product-specific modules, or application business logic to the APB template.
+Generated agents must preserve a framework, platform, CMS, monorepo, or established repository convention and document its mapping. If no convention exists, they must ask the project owner to choose one before implementation. APB must not invent a `src/`, module, shared-code, integration, or test layout.
 
 Generated projects use `.agent/docs/code-organization.md` as the source of truth for framework mapping, module boundaries, shared code rules, and reuse checks. Template updates that affect code placement must update that document and the generated `.agent/AGENTS.md` rules together.
 

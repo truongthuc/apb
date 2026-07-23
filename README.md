@@ -2,7 +2,7 @@
 
 APB là bộ khởi tạo dự án phần mềm dành cho cách làm việc có AI coding agent tham gia. Nó không phải framework ứng dụng, không phải runtime orchestration, và không cố thay thế quy trình phát triển hiện có. APB chỉ tạo sẵn một nền làm việc có kỷ luật để con người và agent cùng hiểu dự án, cùng theo một workflow, và không làm mất ngữ cảnh sau mỗi phiên làm việc.
 
-Nói ngắn gọn: APB giúp bạn bắt đầu một repo mới với sẵn luật làm việc cho agent, nơi lưu tri thức dự án, kế hoạch, review, tài liệu kỹ thuật, ADR, và cấu trúc code baseline.
+Nói ngắn gọn: APB giúp bạn bắt đầu một repo mới với sẵn luật làm việc cho agent, nơi lưu tri thức dự án, kế hoạch, review, tài liệu kỹ thuật và ADR, nhưng không quyết định cấu trúc source code thay cho project.
 
 ## APB giải quyết vấn đề gì
 
@@ -41,7 +41,7 @@ Phiên bản v0.1 cố ý đơn giản:
 - Thay `{{PROJECT_NAME}}` bằng tên thư mục dự án.
 - Tạo cấu trúc `.agent/` để agent và chủ dự án làm việc có kỷ luật.
 - Tạo root `AGENTS.md` và `CLAUDE.md` làm file cầu nối cho agent.
-- Tạo baseline code structure trung lập cho dự án chưa có framework.
+- Yêu cầu agent nhận diện cấu trúc native của framework/CMS hoặc hỏi owner trước khi tạo source code.
 - Cung cấp lệnh render tài liệu BA thành `.agent/planning/02-project-summary.md`.
 - Cung cấp context resolver local-first để agent tự định tuyến từ task tới feature knowledge và source code.
 
@@ -124,7 +124,7 @@ Sau khi cập nhật:
 
 - Project tạo mới bằng `create-apb` sẽ nhận template, agent rules và context-routing runtime mới nhất.
 - Project đã được tạo trước đó vẫn giữ runtime vendored và `.agent/` hiện có; APB v0.1 chưa tự động migrate project không trống.
-- Không chạy lại `create-apb` trực tiếp vào project cũ. Hãy review và migrate thay đổi `.agent/` riêng, hoặc tạo project mới nếu muốn nhận toàn bộ baseline mới.
+- Không chạy lại `create-apb` trực tiếp vào project cũ. Hãy review và migrate thay đổi `.agent/` riêng, hoặc tạo project mới nếu muốn nhận toàn bộ APB workspace mới.
 - Chỉ chạy `apb-context --project /path/to/existing-project ...` không đủ để nâng cấp workflow của project cũ, vì agent rules và feature capsule cũng cần tương thích.
 
 ## Tạo dự án mới
@@ -193,6 +193,8 @@ APB không ghi đè `.agent/planning/02-project-summary.md` nếu file này đã
 
 ## Cấu trúc dự án được tạo
 
+APB chỉ tạo workspace dành cho agent và các file bridge ở root. APB không tạo sẵn cây source code ứng dụng.
+
 ```text
 README.md
 AGENTS.md
@@ -224,17 +226,11 @@ CLAUDE.md
   runtime/
   tools/
     context-routing/
-src/
-  app/
-  modules/
-    example-module/
-  shared/
-    kernel/
-    adapters/
-  integrations/
-tests/
-  helpers/
 ```
+
+Nếu project dùng framework, platform hoặc CMS như WordPress, Laravel hay Next.js, agent phải giữ cấu trúc native, nhận diện các boundary sẵn có — ví dụ `wp-content/plugins` và `wp-content/themes` trong WordPress — rồi ghi mapping thực tế vào `.agent/docs/code-organization.md`. Nếu project chưa có cấu trúc source, agent phải hỏi owner chọn hướng tổ chức trước task implementation đầu tiên; APB không tự chọn `src/`, module layout hay test layout.
+
+Lưu ý: lệnh `create-apb` của v0.1 hiện vẫn chỉ nhận thư mục chưa tồn tại hoặc đang trống. Việc đưa APB vào một repository framework/CMS đã có code cần được thực hiện bằng migration có review; không chạy generator đè trực tiếp lên repository đó.
 
 Tài liệu dành cho agent nằm trong `.agent/`.
 
@@ -282,24 +278,9 @@ Khi dự án lớn lên, agent có thể thêm các note như `features/`, `modu
 
 Template planning tách rõ yêu cầu đã xác nhận, giả định, câu hỏi mở, rủi ro, phạm vi không làm, và kế hoạch kiểm chứng khi task có độ mơ hồ, rủi ro, hoặc ảnh hưởng triển khai đáng kể. Với task known-known nhỏ như sửa typo, đổi text, hoặc thêm config đơn giản, agent chỉ cần nêu assumption, risk, hoặc validation note nếu chúng thật sự tồn tại.
 
-APB cũng tạo sẵn hướng dẫn tổ chức code để giảm khả năng agent ở nhiều thread sinh helper hoặc abstraction trùng nhau. Nếu dự án dùng framework hoặc đã có convention riêng, agent phải ưu tiên convention đó và ghi mapping vào `.agent/docs/code-organization.md`.
+APB tạo hướng dẫn tổ chức code nhưng không tạo source skeleton. Agent phải ưu tiên cấu trúc của framework/CMS hoặc convention hiện có và ghi mapping vào `.agent/docs/code-organization.md`. Nếu chưa có convention, agent hỏi owner và chỉ bắt đầu implementation sau khi mapping được xác nhận.
 
-Với dự án chưa có cấu trúc rõ, APB cung cấp baseline trung lập:
-
-```text
-src/
-  app/
-  modules/
-    example-module/
-  shared/
-    kernel/
-    adapters/
-  integrations/
-  tests/
-    helpers/
-```
-
-Quy tắc chi tiết nằm trong `.agent/docs/code-organization.md`: logic theo feature nằm trong boundary của framework hoặc module, shared code chỉ dùng khi reuse đã rõ hoặc được owner chấp thuận, và agent không được tạo các file/thư mục catch-all như `utils`, `helpers`, `common`, hoặc `misc`.
+Quy tắc chi tiết vẫn yêu cầu logic theo feature nằm trong boundary đã được ghi nhận, shared code chỉ dùng khi reuse đã rõ hoặc được owner chấp thuận, và agent không được tự tạo các file/thư mục catch-all như `utils`, `helpers`, `common`, hoặc `misc`.
 
 ## Dự án đã có sẵn
 

@@ -26,22 +26,9 @@ The local runtime is vendored under `.agent/tools/context-routing/`, so routing 
 
 ## Code Structure
 
-APB starts projects with lightweight code organization guidance. If the project already uses a framework or established repository convention, follow that convention first and document the mapping in `.agent/docs/code-organization.md`.
+APB does not generate an application source or test skeleton. If the project uses a framework, platform, CMS, or established repository convention, follow it and document the mapping in `.agent/docs/code-organization.md`. Preserve native boundaries such as WordPress `wp-content/plugins` and `wp-content/themes`.
 
-For projects without an existing structure, APB provides this framework-neutral baseline:
-
-```text
-src/
-  app/
-  modules/
-    example-module/
-  shared/
-    kernel/
-    adapters/
-  integrations/
-  tests/
-    helpers/
-```
+If no source convention exists, the agent must ask the project owner to choose one before the first implementation task. Do not invent a `src/`, module, shared-code, integration, or test layout merely to start coding.
 
 Before adding helpers, utilities, shared modules, or abstractions, read `.agent/docs/code-organization.md`.
 

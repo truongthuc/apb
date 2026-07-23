@@ -130,23 +130,11 @@ Each durable note should include a `Related Knowledge` section when cross-links 
 
 Use `.agent/docs/code-organization.md` as the source of truth for repository code structure.
 
-If the project already uses a framework, platform, monorepo layout, or established repository convention, follow that convention first and document the mapping in `.agent/docs/code-organization.md`.
+If the project already uses a framework, platform, CMS, monorepo layout, or established repository convention, follow that convention first and document the mapping in `.agent/docs/code-organization.md`.
 
-For projects without an existing structure, use this recommended baseline:
+APB does not choose or generate an application source layout. If the repository does not yet have a clear structure, ask the project owner to choose one and record it in `.agent/docs/code-organization.md` before the first implementation task.
 
-```text
-src/
-  app/
-  modules/
-  shared/
-    kernel/
-    adapters/
-  integrations/
-  tests/
-    helpers/
-```
-
-Feature-specific logic must live inside the framework's feature/module boundary, or inside `src/modules/<module-name>/` when the recommended baseline is used.
+Feature-specific logic must live inside the documented feature or module boundary.
 
 Reusable code may be added to the project's shared-code location only when at least two modules need it, or when the project owner explicitly approves it as shared infrastructure.
 

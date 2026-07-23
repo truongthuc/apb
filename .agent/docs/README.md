@@ -10,4 +10,4 @@ For broad orientation, start from [Agent Memory Index](../index.md). Documentati
 
 ## Template Documents
 
-- Generated projects include `.agent/docs/code-organization.md` to define framework-first structure mapping, the recommended baseline source layout, module boundaries, shared code rules, and reuse checks.
+- Generated projects include `.agent/docs/code-organization.md` to record the selected framework/CMS structure mapping, module boundaries, shared code rules, and reuse checks. APB does not provide a default source skeleton.
