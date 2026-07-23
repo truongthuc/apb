@@ -28,6 +28,8 @@ Các điểm mạnh chính:
 - **Review-first:** workflow mặc định đi từ planning, review, design, implementation, code review, rồi mới cập nhật docs và agent knowledge.
 - **Không khóa vào framework:** APB trung lập với domain và framework. Nếu dự án đã có convention riêng, agent phải ưu tiên convention đó.
 - **Markdown thuần:** agent memory là file Markdown trong repo, không phụ thuộc Obsidian, database, SaaS, hoặc plugin riêng.
+- **Context routing tự động:** agent tự nhận diện feature từ yêu cầu tự nhiên, route tới knowledge, source entrypoint, dependency và test liên quan mà không yêu cầu người dùng gõ lệnh.
+- **Context incremental:** source index dùng hash để tái sử dụng metadata không đổi và chỉ báo lại phần context thay đổi giữa các lượt làm việc.
 - **An toàn với repo đã có file:** bản v0.1 không tự merge vào thư mục không trống để tránh ghi đè nhầm.
 - **Có công cụ render tài liệu BA:** `apb-render-project-info` có thể đọc `.md`, `.txt`, `.docx` và tạo project summary ban đầu cho agent.
 
@@ -41,6 +43,7 @@ Phiên bản v0.1 cố ý đơn giản:
 - Tạo root `AGENTS.md` và `CLAUDE.md` làm file cầu nối cho agent.
 - Tạo baseline code structure trung lập cho dự án chưa có framework.
 - Cung cấp lệnh render tài liệu BA thành `.agent/planning/02-project-summary.md`.
+- Cung cấp context resolver local-first để agent tự định tuyến từ task tới feature knowledge và source code.
 
 APB chưa có manifest, hook, profile, blueprint, plugin, orchestration, hoặc tự động merge vào dự án đã có sẵn file.
 
@@ -77,11 +80,12 @@ cd apb
 npm link
 ```
 
-Sau khi link, máy sẽ có 2 lệnh:
+Sau khi link, máy sẽ có 3 lệnh:
 
 ```text
 create-apb
 apb-render-project-info
+apb-context
 ```
 
 Kiểm tra:
@@ -89,6 +93,7 @@ Kiểm tra:
 ```bash
 which create-apb
 which apb-render-project-info
+which apb-context
 ```
 
 Nếu không muốn dùng `npm link`, có thể chạy trực tiếp từ repo:
@@ -181,6 +186,10 @@ CLAUDE.md
   docs/
     README.md
     code-organization.md
+    context-routing.md
+  features/
+    README.md
+    template.md
   planning/
     00-bootstrap.md
     01-task-list.md
@@ -188,6 +197,9 @@ CLAUDE.md
   review-history/
     README.md
   reviews/
+  runtime/
+  tools/
+    context-routing/
 src/
   app/
   modules/
@@ -205,6 +217,22 @@ Tài liệu dành cho agent nằm trong `.agent/`.
 Root `AGENTS.md` và `CLAUDE.md` là file cầu nối mỏng về `.agent/AGENTS.md`. APB giữ `.agent/AGENTS.md` làm nguồn sự thật chung, còn `CLAUDE.md` tồn tại để Claude nhận đúng entry point.
 
 `.agent/index.md` là bản đồ tri thức bền vững cho agent. APB dùng mô hình note-link kiểu Obsidian nhưng giữ toàn bộ nội dung ở Markdown thuần: link chính dùng đường dẫn Markdown tương đối, còn wiki link hoặc tính năng riêng của editor chỉ được xem là phụ trợ.
+
+## Context routing tự động
+
+Các feature capsule trong `.agent/features/` liên kết yêu cầu tự nhiên và tài liệu dự án với source entrypoint, phạm vi implementation và test. Với task không nhỏ, agent tự gọi context resolver; người dùng chỉ cần mô tả công việc bình thường.
+
+Project được generate có sẵn runtime local tại `.agent/tools/context-routing/`, nên sau khi clone repository trên máy khác, agent vẫn route được mà không cần cài APB global. Nếu feature đầu tiên chưa có capsule, agent thực hiện một lần targeted discovery rồi tự khởi tạo capsule trước khi resolve lại yêu cầu.
+
+Resolver chia kết quả thành ba mức:
+
+- `required`: knowledge và source entrypoint phải đọc trước.
+- `conditional`: dependency hoặc test chỉ đọc khi thay đổi kích hoạt chúng.
+- `reference`: file trong feature boundary chỉ được giữ ở metadata, không đọc nội dung nếu chưa có lý do.
+
+Metadata source được cache trong `.agent/runtime/context-routing/`, là thư mục đã bị Git ignore. Mỗi feature có baseline riêng và mỗi feature/task có overlay riêng, nên việc chuyển sang feature khác không làm mất lịch sử incremental. Resolver tái sử dụng file không đổi, theo local import và reverse caller transitively, rồi báo cả feature delta lẫn task delta.
+
+Khi phát hiện entrypoint bị rename hoặc dependency mới nằm ngoài feature boundary, resolver sinh maintenance proposal kèm evidence. Agent tự áp dụng exact safe repair; proposal còn lại chỉ được promote sau khi code, test hoặc design đã xác minh. Capsule được tăng revision và refresh ngay sau khi cập nhật. Lệnh `apb-context` là primitive nội bộ; trong workflow bình thường agent phải tự gọi theo quy tắc trong `.agent/AGENTS.md`.
 
 ## Quy trình làm việc
 

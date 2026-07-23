@@ -28,3 +28,6 @@ coverage/
 *.zip
 *.tar
 *.tar.gz
+
+# Disposable context-routing state
+.agent/runtime/

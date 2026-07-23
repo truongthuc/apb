@@ -16,8 +16,13 @@ Begin with:
 6. `.agent/planning/00-bootstrap.md`
 7. `.agent/planning/01-task-list.md`
 8. `.agent/docs/code-organization.md`
+9. `.agent/docs/context-routing.md`
 
 `.agent/index.md` is the durable memory map. Use it to connect project context, rules, decisions, reviews, feature notes, module notes, concept notes, and workflow notes with relative Markdown links.
+
+For non-trivial tasks, agents automatically use feature capsules under `.agent/features/` to route natural-language requests to relevant knowledge, source entry points, implementation boundaries, and tests. Project owners do not need to run context-routing commands during normal work.
+
+The local runtime is vendored under `.agent/tools/context-routing/`, so routing continues to work after the repository is cloned without requiring a global APB installation.
 
 ## Code Structure
 

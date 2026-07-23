@@ -3,10 +3,10 @@
 | Section | Guidance |
 | --- | --- |
 | Purpose | APB is a small bootstrap tool for starting AI-assisted software projects with a shared agent workflow. |
-| Current version | v0.1 copies template files, replaces `{{PROJECT_NAME}}`, and produces a usable project bootstrap. It does not include manifests, hooks, profiles, blueprints, plugins, or orchestration. |
+| Current version | v0.1 copies template files, replaces `{{PROJECT_NAME}}`, produces a usable project bootstrap, and provides local agent-native context routing. It does not include hooks, profiles, blueprints, plugins, or orchestration. |
 | Requirements | Use Node.js 18 or newer, npm, and a target directory that is missing or empty. |
-| Install locally | Run `cd apb`, then `npm link`. This exposes `create-apb` and `apb-render-project-info` globally on the machine. |
-| Verify local install | Run `which create-apb` and `which apb-render-project-info`. |
+| Install locally | Run `cd apb`, then `npm link`. This exposes `create-apb`, `apb-render-project-info`, and `apb-context` globally on the machine. |
+| Verify local install | Run `which create-apb`, `which apb-render-project-info`, and `which apb-context`. |
 | Run without global link | Use `npm run create-apb -- ../my-project` or `npm run render-project-info -- ../my-project/input/ba-description.md ../my-project`. |
 | Create a new project | Run `create-apb ../my-project`, or run `node bin/create-apb.js ../my-project` from this repository. |
 | Target directory rule | The target directory may be missing or empty. The generator stops if the target directory already contains files. |
@@ -18,6 +18,10 @@
 | Generated project structure | Generated projects include `README.md`, `AGENTS.md`, `CLAUDE.md`, and `.agent/` with agent rules, a note-linked memory index, planning, docs, architecture decisions, review history, artifacts, previews, and reviews. |
 | Agent documentation location | Agent-facing planning and documentation live under `.agent/`. Root `docs/` is optional and should be reserved for human-facing documentation outside the agent workflow. |
 | Note-linked memory | `.agent/index.md` is the durable navigation map. APB uses Obsidian-inspired note linking while keeping required knowledge in plain Markdown with relative Markdown links. Editor-only features such as wiki links, canvas files, or Dataview queries must remain supplemental. |
+| Context routing | Agents automatically resolve non-trivial natural-language tasks through `.agent/features/` capsules. Routing connects knowledge to source entry points, implementation boundaries, dependencies, and tests while keeping broad feature files at metadata level until needed. |
+| Vendored runtime | `create-apb` copies the context-routing runtime into `.agent/tools/context-routing/`, so generated repositories remain self-contained after cloning and do not require a global APB installation for automatic agent routing. |
+| Incremental context | `apb-context` caches source hashes, symbols, and common imports under ignored `.agent/runtime/` state. It keeps independent per-feature baselines and per-task overlays, follows transitive local dependencies and reverse callers, and reports feature/task deltas. |
+| Self-maintenance | The resolver proposes stale-entrypoint repairs and newly discovered source bindings with evidence. Agents apply exact safe repairs automatically and promote other bindings only after code, tests, or an approved design validates them. Capsule revision and context state refresh after accepted maintenance. |
 | Agent bridge policy | Root `AGENTS.md` and `CLAUDE.md` are thin bridge files that point to `.agent/AGENTS.md`. `.agent/AGENTS.md` remains the source of truth. |
 | Workflow discipline | Generated projects use a review-first workflow: planning, planning review, frozen planning, implementation design, design review, frozen design, milestone implementation, code review, fixes, documentation updates, and agent knowledge updates. |
 | Handling unclear context | Generated agent rules require Open Questions instead of silent guessing. Owner answers are routed into the appropriate `.agent/` memory files. |

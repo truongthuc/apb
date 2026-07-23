@@ -35,6 +35,7 @@ The generated project is expected to continue evolving its `.agent/` files as re
 - Use `.agent/architecture-decisions/` for accepted technical decisions.
 - Use `.agent/review-history/` for review outcomes.
 - Render source BA documents into `.agent/planning/02-project-summary.md` with `apb-render-project-info`.
+- Resolve natural-language tasks to incremental feature knowledge, source entry points, dependencies, and tests with `apb-context`.
 
 ## In Scope
 
@@ -49,6 +50,7 @@ In scope:
 - Architecture decision record conventions.
 - Simple bootstrap CLI behavior.
 - Simple BA document rendering into project summary notes.
+- Local, agent-native context routing through explicit feature capsules and a disposable incremental source index.
 
 ## Out of Scope
 
@@ -85,6 +87,8 @@ In scope:
 - APB is a Node.js-based repository.
 - `create-apb` copies `templates/` into a new or empty target directory and replaces `{{PROJECT_NAME}}`.
 - `apb-render-project-info` reads Markdown, text, DOCX files, or supported source directories and creates `.agent/planning/02-project-summary.md`.
+- `apb-context` reads `.agent/features/` capsules, builds a lightweight local source index, preserves per-feature baselines and per-task overlays, and writes disposable state under `.agent/runtime/context-routing/`.
+- `create-apb` vendors the context-routing CLI and engine into `.agent/tools/context-routing/` so generated repositories remain self-contained.
 - The template source of truth lives under `templates/`.
 - Generated projects use `.agent/` for agent-facing long-term memory.
 - Generated projects include `.agent/index.md` as the entry point for note-linked agent memory.

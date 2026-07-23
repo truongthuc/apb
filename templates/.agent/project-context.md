@@ -49,6 +49,7 @@ To be defined.
 - [Agent Memory Index](index.md)
 - [Business Rules](business-rules.md)
 - [Code Organization](docs/code-organization.md)
+- [Context Routing](docs/context-routing.md)
 - [Architecture Decisions](architecture-decisions/README.md)
 - [Review History](review-history/README.md)
 

@@ -21,6 +21,11 @@ This file is the navigation map for APB's durable agent memory. Start here, then
 ## Documentation
 
 - [Agent Documentation Index](docs/README.md)
+- [Context Routing](docs/context-routing.md)
+
+## Features
+
+- [Context Routing](features/context-routing.md)
 
 ## Planning
 
@@ -35,16 +40,20 @@ This file is the navigation map for APB's durable agent memory. Start here, then
 - [Project Context Agent Brief](planning/08-project-context-agent-brief.md)
 - [Code Organization Baseline](planning/09-code-organization-baseline.md)
 - [Note-Linked Agent Memory](planning/10-note-linked-agent-memory.md)
+- [Incremental Context Routing](planning/11-incremental-context-routing.md)
 
 ## Decisions
 
 - [Architecture Decision Index](architecture-decisions/README.md)
 - [Use Note-Linked Agent Memory](architecture-decisions/2026-07-17-use-note-linked-agent-memory.md)
+- [Use Agent-Native Context Routing](architecture-decisions/2026-07-23-use-agent-native-context-routing.md)
 
 ## Reviews
 
 - [Review History Index](review-history/README.md)
 - [Note-Linked Agent Memory Review](review-history/2026-07-17-note-linked-agent-memory-review.md)
+- [Incremental Context Routing Review](review-history/2026-07-23-incremental-context-routing-review.md)
+- [Context Routing Completion Audit](reviews/2026-07-23-context-routing-completion-audit.md)
 
 ## Optional Knowledge Notes
 
