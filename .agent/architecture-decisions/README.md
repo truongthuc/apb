@@ -23,4 +23,5 @@ Existing ADR files may keep their historical `ADR-0000-*` names until they are s
 
 ## Current Decisions
 
+- [Defer Source Layout to the Project](2026-07-23-defer-source-layout-to-project.md)
 - [Use Agent-Native Incremental Context Routing](2026-07-23-use-agent-native-context-routing.md)

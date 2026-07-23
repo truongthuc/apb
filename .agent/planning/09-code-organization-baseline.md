@@ -1,5 +1,9 @@
 # Code Organization Baseline
 
+## Status
+
+Superseded by [Defer Source Layout to the Project](../architecture-decisions/2026-07-23-defer-source-layout-to-project.md). Retained as historical planning context.
+
 ## Purpose
 
 Reduce duplicated helpers, duplicated abstractions, and inconsistent module placement in projects bootstrapped by APB without forcing framework-based projects into a fixed tree.

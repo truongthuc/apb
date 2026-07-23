@@ -36,26 +36,13 @@ Minimum description to capture:
 
 To be defined.
 
-## Code Organization Baseline
+## Code Organization Decision
 
-If the project already uses a framework or established repository convention, follow that convention and document the project-specific mapping in `.agent/docs/code-organization.md`.
+If the project uses a framework, platform, CMS, monorepo, or established repository convention, follow it and document the project-specific mapping in `.agent/docs/code-organization.md`.
 
-Recommended baseline for projects without an existing structure:
+If the project does not yet have a source convention, ask the owner to choose one before the first implementation task. Record the decision and actual locations for application entry points, features, shared code, integrations, and tests.
 
-```text
-src/
-  app/
-  modules/
-    example-module/
-  shared/
-    kernel/
-    adapters/
-  integrations/
-  tests/
-    helpers/
-```
-
-Review `.agent/docs/code-organization.md` before the first implementation task. Keep feature-specific logic inside the project's feature/module boundary, keep shared code small and domain-neutral, and avoid generic helper files.
+Review `.agent/docs/code-organization.md` before the first implementation task. Do not invent a source skeleton merely to begin coding. Keep feature-specific logic inside the approved boundary, keep shared code small and domain-neutral, and avoid generic helper files.
 
 ## In Scope
 

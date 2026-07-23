@@ -38,7 +38,7 @@ This file is the navigation map for APB's durable agent memory. Start here, then
 - [Question Answer Routing](planning/06-question-answer-routing.md)
 - [Known-Known Workflow Scaling](planning/07-known-known-workflow-scaling.md)
 - [Project Context Agent Brief](planning/08-project-context-agent-brief.md)
-- [Code Organization Baseline](planning/09-code-organization-baseline.md)
+- [Code Organization Baseline (superseded)](planning/09-code-organization-baseline.md)
 - [Note-Linked Agent Memory](planning/10-note-linked-agent-memory.md)
 - [Incremental Context Routing](planning/11-incremental-context-routing.md)
 
@@ -47,6 +47,7 @@ This file is the navigation map for APB's durable agent memory. Start here, then
 - [Architecture Decision Index](architecture-decisions/README.md)
 - [Use Note-Linked Agent Memory](architecture-decisions/2026-07-17-use-note-linked-agent-memory.md)
 - [Use Agent-Native Context Routing](architecture-decisions/2026-07-23-use-agent-native-context-routing.md)
+- [Defer Source Layout to the Project](architecture-decisions/2026-07-23-defer-source-layout-to-project.md)
 
 ## Reviews
 

@@ -2,7 +2,7 @@
 
 ## Status
 
-Approved
+Superseded by [Defer Source Layout to the Project](2026-07-23-defer-source-layout-to-project.md)
 
 ## Context
 
