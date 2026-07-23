@@ -103,6 +103,30 @@ npm run create-apb -- ../my-project
 npm run render-project-info -- ../my-project/input/ba-description.md ../my-project
 ```
 
+## Nâng cấp APB
+
+Để nhận phiên bản mới nhất của APB trên máy đã cài bằng `npm link`:
+
+```bash
+cd /path/to/apb
+git switch master
+git pull --ff-only
+npm test
+```
+
+`npm link` tạo liên kết tới repository local, nên thông thường chỉ cần chạy lại khi lệnh global bị mất hoặc chưa từng được link:
+
+```bash
+npm link
+```
+
+Sau khi cập nhật:
+
+- Project tạo mới bằng `create-apb` sẽ nhận template, agent rules và context-routing runtime mới nhất.
+- Project đã được tạo trước đó vẫn giữ runtime vendored và `.agent/` hiện có; APB v0.1 chưa tự động migrate project không trống.
+- Không chạy lại `create-apb` trực tiếp vào project cũ. Hãy review và migrate thay đổi `.agent/` riêng, hoặc tạo project mới nếu muốn nhận toàn bộ baseline mới.
+- Chỉ chạy `apb-context --project /path/to/existing-project ...` không đủ để nâng cấp workflow của project cũ, vì agent rules và feature capsule cũng cần tương thích.
+
 ## Tạo dự án mới
 
 Dùng lệnh đã link:

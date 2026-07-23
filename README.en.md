@@ -7,6 +7,9 @@
 | Requirements | Use Node.js 18 or newer, npm, and a target directory that is missing or empty. |
 | Install locally | Run `cd apb`, then `npm link`. This exposes `create-apb`, `apb-render-project-info`, and `apb-context` globally on the machine. |
 | Verify local install | Run `which create-apb`, `which apb-render-project-info`, and `which apb-context`. |
+| Upgrade the local APB checkout | Run `git switch master`, `git pull --ff-only`, and `npm test` from the APB repository. Because `npm link` points to the local checkout, rerun it only when the global commands are missing or the repository has not been linked before. |
+| New projects after an upgrade | Projects created after the pull receive the latest templates, agent rules, and vendored context-routing runtime automatically. |
+| Existing projects after an upgrade | Previously generated projects keep their current vendored runtime and `.agent/` memory. APB v0.1 does not migrate non-empty projects automatically, so do not rerun `create-apb` in place; review and migrate the `.agent/` changes separately. Running the global resolver alone does not upgrade project rules or feature capsules. |
 | Run without global link | Use `npm run create-apb -- ../my-project` or `npm run render-project-info -- ../my-project/input/ba-description.md ../my-project`. |
 | Create a new project | Run `create-apb ../my-project`, or run `node bin/create-apb.js ../my-project` from this repository. |
 | Target directory rule | The target directory may be missing or empty. The generator stops if the target directory already contains files. |
