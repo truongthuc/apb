@@ -44,9 +44,28 @@ function copyTemplate(source, target) {
 
   const content = fs.readFileSync(source, "utf8");
   const output = content.replaceAll("{{PROJECT_NAME}}", replacement);
+  fs.mkdirSync(path.dirname(target), { recursive: true });
   fs.writeFileSync(target, output);
 }
 
 copyTemplate(templateDir, targetDir);
+copyTemplate(
+  path.resolve(__dirname, "apb-context.js"),
+  path.join(targetDir, ".agent", "tools", "context-routing", "apb-context.js"),
+);
+copyTemplate(
+  path.resolve(__dirname, "..", "lib", "context-routing", "index.js"),
+  path.join(targetDir, ".agent", "tools", "context-routing", "index.js"),
+);
+ensureRuntimeIgnore(targetDir);
 
 console.log(`Created APB project at ${targetDir}`);
+
+function ensureRuntimeIgnore(projectRoot) {
+  const ignoreFile = path.join(projectRoot, ".gitignore");
+  const rule = ".agent/runtime/";
+  const existing = fs.existsSync(ignoreFile) ? fs.readFileSync(ignoreFile, "utf8") : "";
+  if (existing.split(/\r?\n/).includes(rule)) return;
+  const separator = existing && !existing.endsWith("\n") ? "\n" : "";
+  fs.writeFileSync(ignoreFile, `${existing}${separator}${rule}\n`);
+}

@@ -39,6 +39,27 @@ If `.agent/project-context.md` remains incomplete after bootstrap, treat project
 
 For small known-known tasks, only read the project context when the change could affect product behavior, business rules, user-facing workflows, terminology, or architecture.
 
+## Automatic Context Routing
+
+For every non-trivial task, infer the active feature and resolve its incremental context before broad repository exploration. The project owner should only need to describe the work in natural language; do not require them to run context-routing commands.
+
+When `.agent/features/` contains active feature capsules, run `node .agent/tools/context-routing/apb-context.js resolve "<owner request>" --json` as an internal agent step. The runtime is vendored into generated projects, so do not ask the owner to install or invoke it. Use the returned context as follows:
+
+If no active capsule exists for the requested feature, perform one targeted discovery to confirm its purpose, knowledge, source entry points, boundary, and tests. Then create the first capsule internally with `init-feature`, resolve the original request again, and continue through the normal workflow. Do not require the owner to create the capsule or learn CLI syntax.
+
+1. Read `required` knowledge and targeted source entry points first.
+2. Read `conditional` dependencies or tests only when the proposed change activates them.
+3. Treat `reference` files as discovered metadata; do not read their contents without a task-specific reason.
+4. Before reading a file not present in compact output, run `node .agent/tools/context-routing/apb-context.js check --path <file> --json`. If it is unlisted, identify concrete evidence and record it with `node .agent/tools/context-routing/apb-context.js expand --path <file> --reason <evidence> --json` before reading it.
+5. Re-resolve the same task after material repository changes so the per-feature baseline and task overlay can report added, modified, removed, and unchanged routed files.
+6. After validation, apply exact safe repairs internally with `node .agent/tools/context-routing/apb-context.js maintain --apply-safe --json`.
+7. Accept a non-safe maintenance proposal only when code, tests, or an approved design proves the relationship, using `node .agent/tools/context-routing/apb-context.js maintain --accept <proposal-id> --json`, then re-resolve the task.
+8. Before completing a non-trivial task, run `node .agent/tools/context-routing/apb-context.js validate --json`.
+9. If routing is unresolved or warns about missing critical bindings, use targeted repository search as a fallback and update the feature capsule after the context is confirmed.
+10. Ask the owner about feature selection only when ambiguity would materially change product behavior or implementation scope.
+
+Routing is a reading aid, not proof of completeness. Reflection, generated code, dynamic dependencies, external systems, and unrecorded business rules may require additional investigation. See `.agent/docs/context-routing.md` for the schema and operating model.
+
 ## Knowledge Coverage And Unknowns
 
 Planning and design reduce misunderstanding but do not remove missing context. For every feature or workflow request, classify project knowledge into these buckets when the task has meaningful ambiguity, risk, or implementation impact:
@@ -144,9 +165,13 @@ Use this structure for agent-facing workflow material:
   AGENTS.md
   index.md
   artifacts/
+  features/
+    README.md
+    template.md
   planning/
   docs/
     code-organization.md
+    context-routing.md
   architecture-decisions/
     README.md
   previews/
@@ -155,6 +180,9 @@ Use this structure for agent-facing workflow material:
   business-rules.md
   naming-conventions.md
   project-context.md
+  runtime/
+  tools/
+    context-routing/
 ```
 
 Root `docs/` is optional. Use it only for documentation intended for humans outside the agent workflow.

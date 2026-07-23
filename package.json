@@ -5,11 +5,14 @@
   "description": "AI Project Bootstrap Framework",
   "bin": {
     "create-apb": "./bin/create-apb.js",
-    "apb-render-project-info": "./bin/apb-render-project-info.js"
+    "apb-render-project-info": "./bin/apb-render-project-info.js",
+    "apb-context": "./bin/apb-context.js"
   },
   "scripts": {
     "create-apb": "node ./bin/create-apb.js",
-    "render-project-info": "node ./bin/apb-render-project-info.js"
+    "render-project-info": "node ./bin/apb-render-project-info.js",
+    "context": "node ./bin/apb-context.js",
+    "test": "node --test"
   },
   "license": "MIT"
 }

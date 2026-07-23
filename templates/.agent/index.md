@@ -14,6 +14,12 @@ This file is the navigation map for durable agent memory. Start here, then follo
 
 - [Agent Documentation Index](docs/README.md)
 - [Code Organization](docs/code-organization.md)
+- [Context Routing](docs/context-routing.md)
+
+## Features
+
+- [Feature Capsule Guide](features/README.md)
+- [Feature Capsule Template](features/template.md)
 
 ## Planning
 
@@ -30,9 +36,8 @@ This file is the navigation map for durable agent memory. Start here, then follo
 
 ## Optional Knowledge Notes
 
-Create these folders only when the project has durable knowledge that belongs there:
+Create these additional folders only when the project has durable knowledge that belongs there:
 
-- `features/` for user-facing feature notes.
 - `modules/` for module, package, or subsystem boundary notes.
 - `concepts/` for domain concepts and terminology that need more detail than `project-context.md`.
 - `workflows/` for durable user, system, or delivery flow notes.
